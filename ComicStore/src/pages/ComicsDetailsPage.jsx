@@ -13,9 +13,9 @@ function ComicDetailsPage() {
     <section className="comic-details">
       <div className="issue-intro">
         <img />
-        <h1>ComicsDetailPage</h1>
+        <h1>Comic Details</h1>
       </div>
-      {/* <table>Issue Summary table</table> */}
+      {/* <table>Issue table</table> */}
       <div className="issue-summary">
         <h2>Summary</h2>
       </div>
