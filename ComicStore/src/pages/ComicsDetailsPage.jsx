@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const comicsAPI = `https://comicvine.gamespot.com/api/issue/${issueCode}/?api_key=14c652d473fc13e73ef42b10edd6423d911d4969&format=json`;
+const comicsAPI = `https://comicvine.gamespot.com/api/issue/${issueCode}/?api_key=${APIKey}&format=json`;
 const issueCode = null;
+const APIKey = null
 
 function ComicDetailsPage() {
   const [comic, setComic] = useState([]);
