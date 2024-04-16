@@ -11,6 +11,11 @@ h1{
     
 }
 
+h2 {
+    font-size: 100px;
+
+}
+
 .pages-container{
     display: flex;
     justify-content: center; 
@@ -40,6 +45,22 @@ button{
     margin-top:40px;
 }
 
+nav{
+    
+
+}
+
+a {
+    text-decoration: none;
+    margin: 20px;
+    color: black;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
