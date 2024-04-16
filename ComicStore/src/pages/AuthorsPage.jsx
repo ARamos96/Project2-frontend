@@ -2,7 +2,20 @@ import React from 'react'
 
 function AuthorsPage() {
   return (
-    <div>AuthorsPage</div>
+    <div>
+    <div>
+    <h2>Authors</h2>
+    <input type="text" />
+    </div>
+    <div>
+      <img src="" alt="author-cover" />
+      <p>Author</p>
+  
+    </div>
+    
+
+
+  </div>
   )
 }
 
