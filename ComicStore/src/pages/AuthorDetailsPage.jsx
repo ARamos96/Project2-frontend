@@ -3,7 +3,8 @@ function AuthorDetails() {
     <section className="author-details">
       <div className="author-intro">
         <img />
-        <h1>Author Details</h1>
+        <h1>Author Name</h1>
+        <p>Author Intro</p>
       </div>
       {/* <table>Author general info table</table> */}
       <div className="author-career">
