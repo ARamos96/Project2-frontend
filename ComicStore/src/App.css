@@ -1,5 +1,5 @@
 :root{
-    background-color: rgba(235, 235, 235, 0.733);
+    background-color: rgb(228, 221, 221);
     font-family: "Arimo", sans-serif;
 }
 
@@ -25,6 +25,12 @@ h1{
     margin: 50px;
     padding: 200px 80px;
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    background-color:rgba(235, 235, 235, 0.733);
+    
+}
+
+.page-block img{
+    width: 130px;
 }
 
 button{
