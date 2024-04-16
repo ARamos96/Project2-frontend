@@ -6,7 +6,7 @@ import ComicsPage from "./pages/ComicsPage";
 import PublishersPage from "./pages/PublishersPage";
 import MyArea from "./pages/MyPage";
 import ComicDetailsPage from "./pages/ComicsDetailsPage";
-import PublisherDetailsPage from "./pages/Publisher"
+import PublisherDetailsPage from "./pages/PublishersDetailsPage";
 import CharacterDetailsPage from "./pages/CharacterDetailsPage";
 import AuthorDetailsPage from "./pages/AuthorDetailsPage";
 
@@ -23,9 +23,9 @@ function App() {
         <Route path="/myarea" element={<MyArea />} />
         <Route path="*" element="Page not found" />
         <Route path="/beers/:issueId" element={<ComicDetailsPage />} />
-        <Route path="/beers/:authorId" element={<PublisherDetailsPage />} />
+        <Route path="/beers/:authorId" element={<AuthorDetailsPage />} />
         <Route path="/beers/:characterId" element={<CharacterDetailsPage />} />
-        <Route path="/beers/:publisherId" element={<AuthorDetailsPage />} />
+        <Route path="/beers/:publisherId" element={<PublisherDetailsPage />} />
       </Routes>
     </div>
   );
