@@ -9,6 +9,7 @@ export default function PublishersDetails() {
       {/* <table>Publisher Info Table</table> */}
       <div className="publisher-history">
         <h2>Origin</h2>
+        <p>Brief origin</p>
         <div className="Timeline">
           <h3>Timeline</h3>
           {/* Bulletlist timeline */}

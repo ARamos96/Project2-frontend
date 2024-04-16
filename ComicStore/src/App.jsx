@@ -5,7 +5,10 @@ import AuthorsPage from "./pages/AuthorsPage";
 import ComicsPage from "./pages/ComicsPage";
 import PublishersPage from "./pages/PublishersPage";
 import MyArea from "./pages/MyPage";
-
+import ComicDetailsPage from "./pages/ComicsDetailsPage";
+import PublisherDetailsPage from "./pages/Publisher"
+import CharacterDetailsPage from "./pages/CharacterDetailsPage";
+import AuthorDetailsPage from "./pages/AuthorDetailsPage";
 
 function App() {
   return (
@@ -19,6 +22,10 @@ function App() {
         <Route path="/publishers" element={<PublishersPage />} />
         <Route path="/myarea" element={<MyArea />} />
         <Route path="*" element="Page not found" />
+        <Route path="/beers/:issueId" element={<ComicDetailsPage />} />
+        <Route path="/beers/:authorId" element={<PublisherDetailsPage />} />
+        <Route path="/beers/:characterId" element={<CharacterDetailsPage />} />
+        <Route path="/beers/:publisherId" element={<AuthorDetailsPage />} />
       </Routes>
     </div>
   );

@@ -14,22 +14,22 @@ function HomePage() {
           </div>
           
           <div className="page-block">
-          <img src="/ComicStore/src/assets/Images/escritor.png" alt="Author cover" />
+          <img src="../assets/Images/escritor.png" alt="Author cover" />
           <button>Authors</button>
           </div>
 
           <div className="page-block">
-          <img src="/ComicStore/src/assets/Images/cultura-corporativa.png" alt="Publisher cover" />
+          <img src="../assets/Images/cultura-corporativa.png" alt="Publisher cover" />
           <button>Publishers</button>
           </div>
 
           <div className="page-block" >
-          <img src="/ComicStore/src/assets/Images/capa.png" alt="Characters cover" />
+          <img src="../assets/Images/capa.png" alt="Characters cover" />
           <button>Characters</button>
           </div>
 
           <div className="page-block">
-          <img src="/ComicStore/src/assets/Images/leer.png" alt="Personal Area" />
+          <img src="../assets/Images/leer.png" alt="Personal Area" />
           <button>Personal Area</button>
           </div>
 

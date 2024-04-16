@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 const comicsAPI = `https://comicvine.gamespot.com/api/issue/${issueCode}/?api_key=${APIKey}&format=json`;
-const issueCode = null;
-const APIKey = null
 
 function ComicDetailsPage() {
   const [comic, setComic] = useState([]);
+
+  const { issueCode } = useParams();
+  const APIKey = null;
 
   return (
     <section className="comic-details">

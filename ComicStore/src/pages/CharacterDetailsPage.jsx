@@ -1,6 +1,6 @@
 import React from "react";
 
-function CharacterDetails() {
+function CharacterDetailsPage() {
   return (
     <section className="character-details">
       <div className="character-intro">
@@ -21,4 +21,4 @@ function CharacterDetails() {
   );
 }
 
-export default CharacterDetails;
+export default CharacterDetailsPage;

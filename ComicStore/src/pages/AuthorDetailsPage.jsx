@@ -1,4 +1,4 @@
-function AuthorDetails() {
+function AuthorDetailsPage() {
   return (
     <section className="author-details">
       <div className="author-intro">
@@ -22,4 +22,4 @@ function AuthorDetails() {
   );
 }
 
-export default AuthorDetails;
+export default AuthorDetailsPage;
