@@ -1,8 +1,12 @@
-import React from 'react'
-
 function MyArea() {
   return (
-    <div>MyPage</div>
+    <div>
+      MyPage
+
+
+
+
+    </div>
   )
 }
 
