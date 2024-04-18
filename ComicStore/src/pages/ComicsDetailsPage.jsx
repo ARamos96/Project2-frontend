@@ -2,20 +2,21 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-// const comicsAPI = `https://corsproxy.io/comicvine.gamespot.com/api`;
-const comicsAPI = `https://corsproxy.io/?https%3A%2F%2Fcomicvine.gamespot.com%2Fapi%2Fissue%2F4000-173%2F%3Fapi_key%3D14c652d473fc13e73ef42b10edd6423d911d4969%26limit%3D0%26format%3Djson`;
-
+const comicsAPI = `https://corsproxy.io/?https%3A%2F%2Fcomicvine.gamespot.com%2Fapi%2Fissue%2F`;
+const APIkey = '%3Fapi_key%3D14c652d473fc13e73ef42b10edd6423d911d4969'
+const forwardSlash = "%2F"
+//const comicsAPI = `https://corsproxy.io/?https%3A%2F%2Fcomicvine.gamespot.com%2Fapi%2Fissue%2F4000-173%2F%3Fapi_key%3D14c652d473fc13e73ef42b10edd6423d911d4969%26limit%3D0%26format%3Djson`;
 function ComicDetailsPage() {
   const [comic, setComic] = useState([]);
-
+  
   const { issueId } = useParams();
-  // const APIKey = 14c652d473fc13e73ef42b10edd6423d911d4969; al ser alfanumèric no ho llegeix bé
+  const newAPI = `${comicsAPI + issueId + forwardSlash + APIkey + '%26format%3Djson'}`; //API dinàmica
 
   useEffect(() => {
     axios
       .get(
         // `${comicsAPI}/issue/${issueId}/?api_key=14c652d473fc13e73ef42b10edd6423d911d4969&format=json`
-        `${comicsAPI}`
+        `${newAPI}`
       )
       .then((res) => {
         setComic(res.data);
@@ -33,7 +34,7 @@ function ComicDetailsPage() {
         <div>
           <div className="issue-intro">
             <img src={comic.results.image.medium_url} alt={comic.results.name} />
-            <h1>{comic.results.volume.name} {comic.results.issue_number}</h1>
+            <h1>{comic.results.volume.name} #{comic.results.issue_number}</h1>
             <p>Comic Description</p>
           </div>
           {/* <table>Issue table</table> */}
@@ -46,7 +47,7 @@ function ComicDetailsPage() {
               {/* List of creators */}
               {/* Problemes amb comic.map o creator.map, l'error q dona és q no és cap funció */}
               <ul>
-          <li>{comic.results.person_credits[0].name}<br/>{comic.results.person_credits[0].role}</li>              
+          {/* <li>{comic.results.person_credits[0].name && 'none'}<br/>{comic.results.person_credits[0].role && 'none'}</li>               */}
               </ul>
             </div>
             <div className="characters">
