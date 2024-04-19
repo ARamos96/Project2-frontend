@@ -2,20 +2,25 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function AuthorsPage() {
+  
   const [authors, setAuthors] = useState([]);
   const [searchAuthor, setSearchAuthors] = useState('');
 
   useEffect(() => {
     axios
       .get(
-        'https://comicvine.gamespot.com/api/people/?api_key=14c652d473fc13e73ef42b10edd6423d911d4969&format=json'
+        'https://corsproxy.io/?https://comicvine.gamespot.com/api/people/?api_key=14c652d473fc13e73ef42b10edd6423d911d4969&format=json'
         , {
           withCredentials: false
         }
       )
       .then((response) => {
         setAuthors(response.data.results);
-      });
+      })
+      .catch((error) => {
+        console.error("Error 404 Page not found", error);
+      })
+
   }, []);
 
   const filteredAuthors = authors.filter((author) =>
@@ -39,9 +44,9 @@ function AuthorsPage() {
         </form>
       </div>
 
-      <div>
+      <div >
         {filteredAuthors.map((author) => (
-          <div key={author.id}>
+          <div className="author-card" key={author.id}>
             <img src={author.image.original_url} alt="author-cover" />
             <p>{author.name}</p>
           </div>
@@ -50,5 +55,7 @@ function AuthorsPage() {
     </section>
   );
 }
+
+//adding pagination from here
 
 export default AuthorsPage;

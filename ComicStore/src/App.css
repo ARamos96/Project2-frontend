@@ -63,5 +63,33 @@ a {
 }
 
 
+.author-card{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    background-color:rgba(235, 235, 235, 0.733);
+    border-radius: 10px;
+    margin: 10px;
+    margin-left: 420px;
+    margin-right: 420px;
+    height:190px;
+    
+
+}
+
+.author-card img {
+    width: 100px;
+    padding: 10px;
+    margin-left: 40px;
+}
+
+.author-card p{
+    font-size: 40px;
+    margin-left: 80px;
+    
+
+}
+
 
 
