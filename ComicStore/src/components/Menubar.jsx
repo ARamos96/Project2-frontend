@@ -5,12 +5,12 @@ function Menubar() {
   return (
     <div>
         <nav>
-          <a><Link to ="/">Home</Link></a>
-          <a><Link to ="/comics">Comics</Link></a>
-          <a><Link to ="/authors">Authors</Link></a>
-          <a><Link to ="/publishers">Publishers</Link></a>
-          <a><Link to ="/characters">Characters</Link></a>
-          <a><Link to ="/myeare">Personal Area</Link></a>      
+          <Link to ="/">Home</Link>
+          <Link to ="/comics">Comics</Link>
+          <Link to ="/authors">Authors</Link>
+          <Link to ="/publishers">Publishers</Link>
+          <Link to ="/characters">Characters</Link>
+          <Link to ="/myeare">Personal Area</Link>    
 
         </nav>
     </div>

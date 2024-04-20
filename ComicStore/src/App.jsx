@@ -7,7 +7,6 @@ import PublishersPage from "./pages/PublishersPage";
 import CharactersPage from "./pages/CharactersPage";
 import MyArea from "./pages/MyPage";
 import Menubar from "./components/Menubar"
-import CharactersPage from "./pages/CharactersPage";
 import ComicDetailsPage from "./pages/ComicsDetailsPage";
 import PublisherDetailsPage from "./pages/PublishersDetailsPage";
 import CharacterDetailsPage from "./pages/CharacterDetailsPage";
