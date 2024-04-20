@@ -24,6 +24,7 @@ function HomePage() {
           <div className="page-block">
           <Link to ="/authors">
           <img src={escritor} alt="Author cover" />
+            
           <button>Authors</button>
           </Link>
           
@@ -32,6 +33,7 @@ function HomePage() {
           <div className="page-block">
           <Link to = "/publishers">
           <img src={cultura} alt="Publisher cover" />
+            
           <button>Publishers</button>
           </Link>
           </div>
@@ -39,6 +41,7 @@ function HomePage() {
           <div className="page-block" >
           <Link to = "/characters">
           <img src= {capa} alt="Characters cover" />
+
           <button>Characters</button>
           </Link>
           </div>
@@ -46,6 +49,7 @@ function HomePage() {
           <div className="page-block">
           <Link to = "/myarea">
           <img src={leer} alt="Personal Area" />
+
           <button>Personal Area</button>
           </Link>
           </div>
