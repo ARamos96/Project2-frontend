@@ -12,6 +12,8 @@ function ComicDetailsPage() {
   const { issueId } = useParams();
   const newAPI = `${comicsAPI + issueId + forwardSlash + APIkey + '%26format%3Djson'}`; //API dinàmica
 
+// new branch - your new changes (delete this)
+
   useEffect(() => {
     axios
       .get(
