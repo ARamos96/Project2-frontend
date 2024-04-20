@@ -59,6 +59,8 @@ if (author) {
         year: "numeric",
       })
     : "";
+
+    console.log(removeHTMLTagsAndSpecialChars(author.results.description.substring(0, author.results.description.indexOf('Personal Life') !== -1 ? author.results.description.indexOf('Personal Life') : undefined)))
 }
 
 
@@ -120,7 +122,7 @@ if (author) {
           </table>
           <div className="author-career">
             <h2>Career</h2>
-            <p>{removeHTMLTagsAndSpecialChars(author.results.description)}</p>
+            <p>{removeHTMLTagsAndSpecialChars(author.results.description.substring(0, author.results.description.indexOf('Personal Life') !== -1 ? author.results.description.indexOf('Personal Life') : undefined))}</p>
           </div>
           <div className="creators">
             <h3>Creators</h3>
