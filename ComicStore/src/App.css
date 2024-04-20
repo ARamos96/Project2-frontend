@@ -73,23 +73,32 @@ a {
     margin: 10px;
     margin-left: 420px;
     margin-right: 420px;
-    height:190px;
+    height:100px;
     
 
 }
 
 .author-card img {
-    width: 100px;
+    width: 70px;
     padding: 10px;
     margin-left: 40px;
 }
 
 .author-card p{
-    font-size: 40px;
+    font-size: 30px;
     margin-left: 80px;
     
 
 }
 
+small {
+    font-size: 25px;
+}
+
+.comic-action-button{
+    display: flex;
+    flex-direction: column;
+  
+}
 
 
