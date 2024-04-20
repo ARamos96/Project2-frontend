@@ -1,3 +1,9 @@
+import {Link} from "react-router-dom"
+import libroComico from "../assets/Images/libro-comico.png"
+import escritor from "../assets/Images/escritor.png"
+import cultura from "../assets/Images/cultura-corporativa.png"
+import capa from "../assets/Images/capa.png"
+import leer from "../assets/Images/leer.png"
 
 
 function HomePage() {
@@ -9,28 +15,43 @@ function HomePage() {
       <section className="pages-container">
           
           <div className="page-block">
-          <img src="../assets/Images/libro-comico.png" alt="Comic cover" />
-          <button>Comics</button>
+          <Link to = "/comics">
+            <img src={libroComico} alt="Comic cover" />
+            <button>Comics</button>
+          </Link>
           </div>
           
           <div className="page-block">
-          <img src="../assets/Images/escritor.png" alt="Author cover" />
+          <Link to ="/authors">
+          <img src={escritor} alt="Author cover" />
+            
           <button>Authors</button>
+          </Link>
+          
           </div>
 
           <div className="page-block">
-          <img src="../assets/Images/cultura-corporativa.png" alt="Publisher cover" />
+          <Link to = "/publishers">
+          <img src={cultura} alt="Publisher cover" />
+            
           <button>Publishers</button>
+          </Link>
           </div>
 
           <div className="page-block" >
-          <img src="../assets/Images/capa.png" alt="Characters cover" />
+          <Link to = "/characters">
+          <img src= {capa} alt="Characters cover" />
+
           <button>Characters</button>
+          </Link>
           </div>
 
           <div className="page-block">
-          <img src="../assets/Images/leer.png" alt="Personal Area" />
+          <Link to = "/myarea">
+          <img src={leer} alt="Personal Area" />
+
           <button>Personal Area</button>
+          </Link>
           </div>
 
       </section>

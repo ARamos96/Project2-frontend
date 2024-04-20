@@ -1,5 +1,5 @@
 :root{
-    background-color: rgba(235, 235, 235, 0.733);
+    background-color: rgb(228, 221, 221);
     font-family: "Arimo", sans-serif;
 }
 
@@ -9,6 +9,11 @@ h1{
     
     
     
+}
+
+h2 {
+    font-size: 100px;
+
 }
 
 .pages-container{
@@ -25,6 +30,12 @@ h1{
     margin: 50px;
     padding: 200px 80px;
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    background-color:rgba(235, 235, 235, 0.733);
+    
+}
+
+.page-block img{
+    width: 130px;
 }
 
 button{
@@ -34,7 +45,51 @@ button{
     margin-top:40px;
 }
 
+nav{
+    
 
+}
+
+a {
+    text-decoration: none;
+    margin: 20px;
+    color: black;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.author-card{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    background-color:rgba(235, 235, 235, 0.733);
+    border-radius: 10px;
+    margin: 10px;
+    margin-left: 420px;
+    margin-right: 420px;
+    height:190px;
+    
+
+}
+
+.author-card img {
+    width: 100px;
+    padding: 10px;
+    margin-left: 40px;
+}
+
+.author-card p{
+    font-size: 40px;
+    margin-left: 80px;
+    
+
+}
 
 
 
