@@ -6,6 +6,8 @@ function ComicsPage() {
 
   const [comics, setComics] = useState([]);
   const [searchComic, setSearchComics] = useState('');
+  const [currentPage,setCurrentPage] = useState(1);
+  const [totalPages,setTotalPages] = useState(0)
 
   useEffect(() => {
     axios
