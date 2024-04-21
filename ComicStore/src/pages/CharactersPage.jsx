@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Pagination from '../components/Pagination';
+import { Link } from 'react-router-dom';
 
 function CharactersPage() {
 
@@ -73,10 +74,12 @@ function CharactersPage() {
 
       <div >
         {filteredCharacters.map((character) => (
-          <div className="author-card" key={character.id}>
+          <div className="author-card" key={character.id}> <Link to ={`/characters/${character.id}`}>
             <img src={character.image.original_url} alt="Character-cover" />
             <p>{character.name}</p>
+            </Link>
           </div>
+          
         ))}
       </div>
 

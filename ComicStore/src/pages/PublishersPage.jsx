@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Pagination from '../components/Pagination';
+import { Link } from 'react-router-dom';
 
 function PublishersPage() {
 
@@ -72,9 +73,10 @@ function PublishersPage() {
 
       <div >
         {filteredPublishers.map((publisher) => (
-          <div className="author-card" key={publisher.id}>
+          <div className="author-card" key={publisher.id}> <Link to= {`/publishers/${publisher.id}`}>
             <img src={publisher.image.original_url} alt="publisher-cover" />
             <p>{publisher.name}</p>
+            </Link>
           </div>
         ))}
       </div>
