@@ -39,30 +39,32 @@ function AuthorDetailsPage() {
 
   console.log(author);
 
+
+
   let originalBirthDate,
     formattedBirthDate,
     originalDeathDate,
     formattedDeathDate;
 
-  if (author) {
-    originalBirthDate = new Date(author.results.birth);
-    formattedBirthDate = originalBirthDate.toLocaleDateString("en-US", {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    });
+  // if (author) {
+  //   originalBirthDate = new Date(author.results.birth);
+  //   formattedBirthDate = originalBirthDate.toLocaleDateString("en-US", {
+  //     month: "long",
+  //     day: "numeric",
+  //     year: "numeric",
+  //   });
 
-    originalDeathDate = author.results.death.date
-      ? new Date(author.results.death.date)
-      : null;
-    formattedDeathDate = originalDeathDate
-      ? originalDeathDate.toLocaleDateString("en-US", {
-          month: "long",
-          day: "numeric",
-          year: "numeric",
-        })
-      : "";
-  }
+  //   originalDeathDate = author.results.death.date
+  //     ? new Date(author.results.death.date)
+  //     : null;
+  //   formattedDeathDate = originalDeathDate
+  //     ? originalDeathDate.toLocaleDateString("en-US", {
+  //         month: "long",
+  //         day: "numeric",
+  //         year: "numeric",
+  //       })
+  //     : "";
+  // }
 
   // const originalBirthDate = new Date(author.results.birth);
   // const formattedBirthDate = originalBirthDate.toLocaleDateString("en-US", {
@@ -105,23 +107,23 @@ function AuthorDetailsPage() {
               </tr>
               <tr>
                 <th>Gender:</th>
-                <td> {author.results.gender === 1 ? "Male" : "Female"}</td>
+                <td> {author.results.gender === 1 ? "Male" : author.results.gender === 2 ? "Female" : "-"}</td>
               </tr>
               <tr>
                 <th>Birth:</th>
-                <td>{formattedBirthDate}</td>
+                <td>{formattedBirthDate ? formattedBirthDate : "-"}</td>
               </tr>
               <tr>
                 <th>Death:</th>
-                <td>{formattedDeathDate}</td>
+                <td>{formattedDeathDate ? formattedDeathDate : "-"}</td>
               </tr>
               <tr>
                 <th>Town:</th>
-                <td>{author.results.hometown}</td>
+                <td>{author.results.hometown ? author.results.hometown : '-'}</td>
               </tr>
               <tr>
                 <th>Country:</th>
-                <td>{author.results.country}</td>
+                <td>{author.results.country ? author.results.country : '-'}</td>
               </tr>
             </tbody>
           </table>
@@ -137,13 +139,17 @@ function AuthorDetailsPage() {
               )}
             </p>
           </div>
-          <div className="creators">
-            <h3>Creators</h3>
-            {/* List of creators */}
-          </div>
           <div className="characters-created">
             <h3>Characters Created</h3>
             {/* List of characters created */}
+            {author.results && (
+            <ul>
+            {/* <li>{author.results.created_characters[0].name}</li> */}
+            {author.results.created_characters.map((character) => {
+              return <li key={character.id}>{character.name}</li>
+            })}
+            </ul>
+            )}
           </div>
         </div>
       )}
