@@ -26,12 +26,12 @@ function App() {
         <Route path="/publishers" element={<PublishersPage />} />
         <Route path="/characters" element={<CharactersPage />} />
         <Route path="/myarea" element={<MyArea />} />
-        <Route path="/characters" element={<CharactersPage />} />
-        <Route path="*" element="Page not found" />
+        <Route path="/characters" element={<CharactersPage />} />      
         <Route path="/comics/:issueId" element={<ComicDetailsPage />} />
         <Route path="/authors/:authorId" element={<AuthorDetailsPage />} />
         <Route path="/characters/:characterId" element={<CharacterDetailsPage />} />
         <Route path="/publishers/:publisherId" element={<PublisherDetailsPage />} />
+        <Route path="*" element="Page not found" />
       </Routes>
     </div>
   );

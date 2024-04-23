@@ -1,6 +1,8 @@
 function AddMyCollectionButton() {
   return (
-    <div>AddMyCollectionButton</div>
+    <div>
+      <button>+</button>
+    </div>
   )
 }
 
