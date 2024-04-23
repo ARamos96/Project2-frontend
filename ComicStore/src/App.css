@@ -85,20 +85,23 @@ a {
 }
 
 .author-card p{
-    font-size: 30px;
+    font-size: 25px;
     margin-left: 80px;
     
 
 }
 
 small {
-    font-size: 25px;
+    font-size: 18px;
 }
 
 .comic-action-button{
     display: flex;
-    flex-direction: column;
-  
+      
+}
+
+.comic-action-button button {
+    width: 60px;
 }
 
 

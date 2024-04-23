@@ -9,8 +9,7 @@ function Menubar() {
           <Link to ="/comics">Comics</Link>
           <Link to ="/authors">Authors</Link>
           <Link to ="/publishers">Publishers</Link>
-          <Link to ="/characters">Characters</Link>
-          <Link to ="/myearea">Personal Area</Link>    
+          <Link to ="/characters">Characters</Link>  
 
         </nav>
     </div>

@@ -1,6 +1,8 @@
 function AddWishlistButton() {
   return (
-    <div>AddWishlistButton</div>
+    <div>
+      <button>$</button>
+    </div>
   )
 }
 
