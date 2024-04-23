@@ -91,7 +91,7 @@ function AuthorDetailsPage() {
               src={author.results.image.icon_url}
               alt={author.results.name}
             />
-            <h1>Author Name</h1>
+            <h1>{author.results.name}</h1>
             <p>
               <b>General Information</b>
             </p>

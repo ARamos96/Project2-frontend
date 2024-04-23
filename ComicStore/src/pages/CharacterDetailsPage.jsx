@@ -37,10 +37,13 @@ function CharacterDetailsPage() {
         <div>
           <div className="character-intro">
             <img src={character.results.image.icon_url} />
-            <h1>Character Details</h1>
+            <h1>{character.results.name}</h1>
             <p>{removeHTMLTagsAndSpecialChars(character.results.deck)}</p>
           </div>
           {/* <table>Character Info table</table> */}
+          <p>
+            <b>General Information</b>
+          </p>
           <table>
             <tbody>
               <tr>
@@ -96,8 +99,16 @@ function CharacterDetailsPage() {
                 )
               )}
             </p>
-            {/* <h2>Evolution</h2>
-        <p>Character Creation</p> */}
+            <h3>Evolution</h3>
+            <p>
+              {removeHTMLTagsAndSpecialChars(
+                character.results.description.substring(
+                  character.results.description.indexOf("Character Evolution") +
+                    "Creation".length,
+                  character.results.description.indexOf("Major Story Arcs")
+                )
+              )}
+            </p>
           </div>
         </div>
       )}
