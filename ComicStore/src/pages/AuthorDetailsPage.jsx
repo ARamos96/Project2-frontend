@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 // const authorsAPI = `https://corsproxy.io/?https%3A%2F%2Fcomicvine.gamespot.com%2Fapi%2Fperson%2F`;
 // const APIkey = "%3Fapi_key%3D14c652d473fc13e73ef42b10edd6423d911d4969";
 // const forwardSlash = "%2F";
-const authorsAPI = `https://corsproxy.io/?https://comicvine.gamespot.com/api/person`
+const authorsAPI = `https://corsproxy.io/?https://comicvine.gamespot.com/api/person`;
 
 function removeHTMLTagsAndSpecialChars(text) {
   // Remove HTML tags except <p> tags
@@ -39,30 +39,30 @@ function AuthorDetailsPage() {
 
   console.log(author);
 
-  let originalBirthDate, formattedBirthDate, originalDeathDate, formattedDeathDate;
+  let originalBirthDate,
+    formattedBirthDate,
+    originalDeathDate,
+    formattedDeathDate;
 
-if (author) {
-  originalBirthDate = new Date(author.results.birth);
-  formattedBirthDate = originalBirthDate.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
+  if (author) {
+    originalBirthDate = new Date(author.results.birth);
+    formattedBirthDate = originalBirthDate.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
 
-  originalDeathDate = author.results.death.date
-    ? new Date(author.results.death.date)
-    : null;
-  formattedDeathDate = originalDeathDate
-    ? originalDeathDate.toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      })
-    : "";
-
-    console.log(removeHTMLTagsAndSpecialChars(author.results.description.substring(0, author.results.description.indexOf('Personal Life') !== -1 ? author.results.description.indexOf('Personal Life') : undefined)))
-}
-
+    originalDeathDate = author.results.death.date
+      ? new Date(author.results.death.date)
+      : null;
+    formattedDeathDate = originalDeathDate
+      ? originalDeathDate.toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        })
+      : "";
+  }
 
   // const originalBirthDate = new Date(author.results.birth);
   // const formattedBirthDate = originalBirthDate.toLocaleDateString("en-US", {
@@ -87,9 +87,14 @@ if (author) {
       {author && (
         <div>
           <div className="author-intro">
-            <img src={author.results.image.icon_url}/>
+            <img
+              src={author.results.image.icon_url}
+              alt={author.results.name}
+            />
             <h1>Author Name</h1>
-            <p><b>General Information</b></p>
+            <p>
+              <b>General Information</b>
+            </p>
           </div>
           {/* <table>Author general info table</table> */}
           <table>
@@ -122,7 +127,15 @@ if (author) {
           </table>
           <div className="author-career">
             <h2>Career</h2>
-            <p>{removeHTMLTagsAndSpecialChars(author.results.description.substring(0, author.results.description.indexOf('Personal Life') !== -1 ? author.results.description.indexOf('Personal Life') : undefined))}</p>
+            <p>
+              {removeHTMLTagsAndSpecialChars(
+                author.results.description.substring(
+                  author.results.description.indexOf("Career") +
+                    "Career".length,
+                  author.results.description.indexOf("Personal")
+                )
+              )}
+            </p>
           </div>
           <div className="creators">
             <h3>Creators</h3>
