@@ -84,7 +84,7 @@ function ComicsPage() {
     <div >
       {filteredComics.map((comic) => (
         
-        <div className="author-card" key={comic.id}><Link to ={`/comics/${comic.id}`}>
+        <div className="author-card" key={comic.id}><Link to ={`/comics/4000-${comic.id}`}>
           
           <img src={comic.image.original_url} alt="comic-cover" />
           <p><b>{comic.volume.name} </b><br />

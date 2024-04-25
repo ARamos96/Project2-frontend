@@ -73,7 +73,7 @@ function PublishersPage() {
 
       <div >
         {filteredPublishers.map((publisher) => (
-          <div className="author-card" key={publisher.id}> <Link to= {`/publishers/${publisher.id}`}>
+          <div className="author-card" key={publisher.id}> <Link to= {`/publishers/4010-${publisher.id}`}>
             <img src={publisher.image.original_url} alt="publisher-cover" />
             <p>{publisher.name}</p>
             </Link>
