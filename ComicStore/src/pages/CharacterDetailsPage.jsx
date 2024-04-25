@@ -31,19 +31,19 @@ function CharacterDetailsPage() {
       });
   }, []);
 
-  if (character) {
-    console.log(typeof character.results.description);
-  }
+  // if (character) {
+  //   console.log(typeof character.results.description);
+  // }
 
   return (
     <section>
       {character && (
         <div className="character-details">
           <div className="character-intro">
-            <img src={character.results.image.small_url} />
+            <img src={character.results.image.small_url} alt="no image available"/>
             <div className="character-name-and-intro">
               <h1>{character.results.name}</h1>
-              <p>{removeHTMLTagsAndSpecialChars(character.results.deck)}</p>
+              <p>{character.results.deck ? removeHTMLTagsAndSpecialChars(character.results.deck) : ''}</p>
             </div>
           </div>
           {/* <table>Character Info table</table> */}
