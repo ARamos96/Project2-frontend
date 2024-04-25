@@ -55,22 +55,24 @@ function CharacterDetailsPage() {
               <tbody>
                 <tr>
                   <th>Super Name</th>
-                  <td>{character.results.name}</td>
+                  <td>{character.results.name ? character.results.name : '-'}</td>
                 </tr>
                 <tr>
                   <th>Real Name</th>
-                  <td>{character.results.real_name}</td>
+                  <td>{character.results.real_name ? character.results.real_name : '-'}</td>
                 </tr>
                 <tr>
                   <th>Publisher</th>
-                  <td>{character.results.publisher.name}</td>
+                  <td>{character.results.publisher.name ? character.results.publisher.name : '-'}</td>
                 </tr>
                 <tr>
                   <th>Creators</th>
                   <td>
-                    {character.results.creators.map((creator) => (
+                    {character.results.creators.length
+                      ? character.results.creators.map((creator) => (
                       <li key={creator.id}>{creator.name}</li>
-                    ))}
+                    ))
+                    : "-"}
                   </td>
                 </tr>
                 {/* <tr>
@@ -87,33 +89,36 @@ function CharacterDetailsPage() {
           <div className="character-history">
             <h3>Origin</h3>
             <p>
-              {removeHTMLTagsAndSpecialChars(
+              {character.results.description
+              ? removeHTMLTagsAndSpecialChars(
                 character.results.description.substring(
                   character.results.description.indexOf("Origin") +
                     "origin".length,
                   character.results.description.indexOf("Creation")
-                )
-              )}
+                ))
+                : "Information not available"}
             </p>
             <h3>Creation</h3>
             <p>
-              {removeHTMLTagsAndSpecialChars(
+            {character.results.description
+            ? removeHTMLTagsAndSpecialChars(
                 character.results.description.substring(
                   character.results.description.indexOf("Creation") +
                     "Creation".length,
                   character.results.description.indexOf("Character Evolution")
-                )
-              )}
+                ))
+              : "Information not available"}
             </p>
             <h3>Evolution</h3>
             <p>
-              {removeHTMLTagsAndSpecialChars(
+              {character.results.description
+              ? removeHTMLTagsAndSpecialChars(
                 character.results.description.substring(
                   character.results.description.indexOf("Character Evolution") +
                     "Character Evolution".length,
                   character.results.description.indexOf("Major Story Arcs")
-                )
-              )}
+                ))
+                : "Information not available"}
             </p>
           </div>
         </div>

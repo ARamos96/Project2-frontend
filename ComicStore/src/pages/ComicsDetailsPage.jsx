@@ -57,8 +57,8 @@ function ComicDetailsPage() {
           <div className="issue-summary">
             <h3>Summary</h3>
             <p>
-              {comic.description
-                ? removeHTMLTagsAndSpecialChars(comic.description)
+              {comic.results.description
+                ? removeHTMLTagsAndSpecialChars(comic.results.description)
                 : "No summary available"}
             </p>
           </div>
@@ -93,7 +93,7 @@ function ComicDetailsPage() {
                   ))}
                 </ul>
               ) : (
-                "Information not available"
+                "Character information not available"
               )}
             </div>
           </div>
