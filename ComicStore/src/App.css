@@ -108,3 +108,13 @@ small {
 .publisher-intro img {
   width: 200px;
 }
+
+.character-intro {
+    display: flex;
+}
+
+.character-name-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

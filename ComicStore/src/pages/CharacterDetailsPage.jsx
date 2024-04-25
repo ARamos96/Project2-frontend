@@ -37,8 +37,10 @@ function CharacterDetailsPage() {
         <div>
           <div className="character-intro">
             <img src={character.results.image.icon_url} />
-            <h1>{character.results.name}</h1>
-            <p>{removeHTMLTagsAndSpecialChars(character.results.deck)}</p>
+            <div className="character-name-and-intro">
+              <h1>{character.results.name}</h1>
+              <p>{removeHTMLTagsAndSpecialChars(character.results.deck)}</p>
+            </div>
           </div>
           {/* <table>Character Info table</table> */}
           <p>
