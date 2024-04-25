@@ -89,7 +89,7 @@ function CharactersPage() {
 
       <div >
         {filteredCharacters.map((character) => (
-          <div className="author-card" key={character.id}> <Link to ={`/characters/${character.id}`}>
+          <div className="author-card" key={character.id}> <Link to ={`/characters/4005-${character.id}`}>
             <img src={character.image.original_url} alt="Character-cover" />
             <p>{character.name}</p>
             </Link>

@@ -1,6 +1,7 @@
 :root {
   background-color: rgb(228, 221, 221);
   font-family: "Arimo", sans-serif;
+  margin: 0px 20px 20px 20px;
 }
 
 h1 {
@@ -109,12 +110,89 @@ small {
   width: 200px;
 }
 
-.character-intro {
-    display: flex;
+.character-details h3{
+    text-align: center;
+    font-size: 30px;
 }
 
-.character-name-intro {
+.character-details {
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+    text-align: justify;
+    gap: 20px;
+}
+
+
+.character-intro {
+    display: flex;
+    justify-content: center;
+	align-items: center;
+    margin: 20px 20px 0px 20px;
+    padding: 20px;
+    /* border-bottom: 2px solid; */
+}
+
+.character-intro img {
+    width: 200px;
+}
+
+.character-name-and-intro {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0px 15px;
+    text-align: justify;
+    width: 900px;
+    gap: 20px;
 }
+
+.character-name-and-intro p{
+    margin: 0px;
+    line-height: 30px;
+}
+
+.character-name-and-intro h1 {
+    margin: 0;
+}
+
+.genInfo-table {
+    padding: 20px;
+    padding-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border-bottom: 2px solid; */
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+.genInfo-table table {
+    width: 500px;
+    border-collapse: collapse;
+    border: 5px inset rgb(160, 204, 192) ;
+  }
+
+  th, td {
+    padding: 20px;
+    text-align: left;
+    /* border-bottom: 1px solid #ddd; */
+  }
+
+tr:nth-child(even) {
+    background-color: #fff;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: transparent;
+  }
+
+  .character-history {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    line-height: 30px;
+  }
