@@ -9,9 +9,12 @@ function AuthorsPage() {
   const [searchAuthor, setSearchAuthors] = useState('');
   const [currentPage,setCurrentPage] = useState(1);
   const [totalPages,setTotalPages] = useState(0)
+  const [loading,setLoading] = useState(false)
+
 
 
   useEffect(() =>{
+    setLoading(true);
     fetchAuthors();
   },[currentPage]);
 
@@ -33,9 +36,13 @@ function AuthorsPage() {
         const totalPagesCount = Math.ceil(response.data.number_of_total_results / 100);
         setTotalPages(totalPagesCount);
         //console.log("Total Pages:", totalPagesCount);
+        setLoading(false)
+
       })
       .catch((error) => {
         console.error("Error 404 Page not found", error);
+        setLoading(false)
+
       });
   };
 
@@ -72,6 +79,10 @@ function AuthorsPage() {
         </form>
       </div>
 
+      {loading ? (
+        <div className="loader">Loading...</div>
+      ) : (
+
       <div >
         {filteredAuthors.map((author) => (
           <div className="author-card" key={author.id}>
@@ -83,6 +94,7 @@ function AuthorsPage() {
           </div>
         ))}
       </div>
+      )}
 
       <Pagination
         currentPage={currentPage}

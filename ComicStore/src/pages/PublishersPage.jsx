@@ -9,8 +9,11 @@ function PublishersPage() {
   const [searchPublisher, setSearchPublishers] = useState('');
   const [currentPage,setCurrentPage] = useState(1);
   const [totalPages,setTotalPages] = useState(0)
+  const [loading,setLoading] = useState(false)
+
 
   useEffect(() =>{
+    setLoading(true);
     fetchPublishers();
   },[currentPage]);
 
@@ -31,9 +34,13 @@ function PublishersPage() {
         const totalPagesCount = Math.ceil(response.data.number_of_total_results / 100);
         setTotalPages(totalPagesCount);
         //console.log("Total Pages:", totalPagesCount);
+        setLoading(false)
+
       })
       .catch((error) => {
         console.error("Error 404 Page not found", error);
+        setLoading(false)
+
       })
 
   };
@@ -70,6 +77,9 @@ function PublishersPage() {
           </label>
         </form>
       </div>
+      {loading ? (
+        <div className="loader">Loading...</div>
+      ) : (
 
       <div >
         {filteredPublishers.map((publisher) => (
@@ -80,6 +90,7 @@ function PublishersPage() {
           </div>
         ))}
       </div>
+      )}
 
       <Pagination
         currentPage={currentPage}

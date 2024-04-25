@@ -11,8 +11,10 @@ function ComicsPage() {
   const [searchComic, setSearchComics] = useState('');
   const [currentPage,setCurrentPage] = useState(1);
   const [totalPages,setTotalPages] = useState(0)
+  const [loading,setLoading] = useState(false)
 
   useEffect(() =>{
+    setLoading(true);
     fetchComics();
   },[currentPage]);  
     
@@ -36,9 +38,11 @@ function ComicsPage() {
         const totalPagesCount = Math.ceil(response.data.number_of_total_results / 100);
         setTotalPages(totalPagesCount);
         //console.log("Total Pages:", totalPagesCount);
+        setLoading(false)
       })
       .catch((error) => {
         console.error("Error 404 Page not found", error);
+        setLoading(false)
       })
 
   };
@@ -64,65 +68,66 @@ function ComicsPage() {
 
   
   return (
-
     <section>
-    <div className="header">
-      <h2>Comics</h2>
-      <form>
-        <label>
-          Search comic
-          <input
-            name="searchComic"
-            type="text"
-            onChange={(e) => setSearchComics(e.target.value)}
-            value={searchComic}
-          />
-        </label>
-      </form>
-    </div>
+      <div className="header">
+        <h2>Comics</h2>
+        <form>
+          <label>
+            Search comic
+            <input
+              name="searchComic"
+              type="text"
+              onChange={(e) => setSearchComics(e.target.value)}
+              value={searchComic}
+            />
+          </label>
+        </form>
+      </div>
 
-    <div >
-      {filteredComics.map((comic) => (
-        
-        <div className="author-card" key={comic.id}>
-          
-          <img src={comic.image.original_url} alt="comic-cover" />
-          <Link to ={`/comics/${comic.id}`}>
-          <p><b>{comic.volume.name} </b><br />
-          
-          <small>{comic.name}</small> <br />
-          <small>Issue # {comic.issue_number}</small> </p> 
-          </Link>
-          <div className="comic-action-button">
-           <AddMyCollectionButton
-           id = {comic.id}
-           volume_title = {comic.volume.name}
-           issue_title ={comic.name}
-           issue_number ={comic.issue_number}
-           image={comic.image.original_url}
-           />
-           <AddWishlistButton 
-              id = {comic.id}
-              volume_title = {comic.volume.name}
-              issue_title ={comic.name}
-              issue_number ={comic.issue_number}
-              image={comic.image.original_url}/>
-          </div>
-          
+      {loading ? (
+        <div className="loader">Loading...</div>
+      ) : (
+        <div>
+          {filteredComics.map((comic) => (
+            <div className="author-card" key={comic.id}>
+              <img src={comic.image.original_url} alt="comic-cover" />
+              <Link to={`/comics/${comic.id}`}>
+                <p>
+                  <b>{comic.volume.name} </b>
+                  <br />
+                  <small>{comic.name}</small> <br />
+                  <small>Issue # {comic.issue_number}</small>{" "}
+                </p>
+              </Link>
+              <div className="comic-action-button">
+                <AddMyCollectionButton
+                  id={comic.id}
+                  volume_title={comic.volume.name}
+                  issue_title={comic.name}
+                  issue_number={comic.issue_number}
+                  image={comic.image.original_url}
+                />
+                <AddWishlistButton
+                  id={comic.id}
+                  volume_title={comic.volume.name}
+                  issue_title={comic.name}
+                  issue_number={comic.issue_number}
+                  image={comic.image.original_url}
+                />
+              </div>
+            </div>
+          ))}
         </div>
-        
-        
-      ))}
-    </div>
+      )}
 
-    <Pagination
+      <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
         onNextPage={handleNextPage}
         onPrevPage={handlePrevPage}
       />
-  </section>
-);
+    </section>
+  );
 }
 
-export default ComicsPage
+export default ComicsPage;

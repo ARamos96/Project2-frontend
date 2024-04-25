@@ -9,8 +9,11 @@ function CharactersPage() {
   const [searchCharacter, setSearchCharacters] = useState('');
   const [currentPage,setCurrentPage] = useState(1);
   const [totalPages,setTotalPages] = useState(0)
+  const [loading,setLoading] = useState(false)
+
 
   useEffect(() => {
+    setLoading(true)
     fetchCharacters();
   },[currentPage]);
     
@@ -32,9 +35,11 @@ function CharactersPage() {
         const totalPagesCount = Math.ceil(response.data.number_of_total_results / 100);
         setTotalPages(totalPagesCount);
         //console.log("Total Pages:", totalPagesCount);
+        setLoading(false)
       })
       .catch((error) => {
         console.error("Error 404 Page not found", error);
+        setLoading(false)
       })
 
   };
@@ -72,6 +77,10 @@ function CharactersPage() {
         </form>
       </div>
 
+      {loading ? (
+        <div className="loader">Loading...</div>
+      ) : (
+
       <div >
         {filteredCharacters.map((character) => (
           <div className="author-card" key={character.id}> <Link to ={`/characters/${character.id}`}>
@@ -82,6 +91,7 @@ function CharactersPage() {
           
         ))}
       </div>
+      )}
 
       <Pagination
         currentPage={currentPage}
