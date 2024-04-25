@@ -76,7 +76,7 @@ function AuthorsPage() {
         {filteredAuthors.map((author) => (
           <div className="author-card" key={author.id}>
             <img src={author.image.original_url} alt="author-cover" />
-            <p><Link to={`/authors/${author.id}`}>
+            <p><Link to={`/authors/4040-${author.id}`}>
               {author.name}
               </Link>
               </p>

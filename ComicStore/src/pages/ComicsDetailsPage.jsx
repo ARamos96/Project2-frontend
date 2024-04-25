@@ -42,7 +42,7 @@ function ComicDetailsPage() {
     <section className="comic-details">
       {comic && (
         <div>
-          <div className="issue-intro">
+          <div className="issue-name-image">
             <img
               src={comic.results.image.medium_url}
               alt={comic.results.name}
