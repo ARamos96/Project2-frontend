@@ -84,17 +84,31 @@ function ComicsPage() {
     <div >
       {filteredComics.map((comic) => (
         
-        <div className="author-card" key={comic.id}><Link to ={`/comics/${comic.id}`}>
+        <div className="author-card" key={comic.id}>
           
           <img src={comic.image.original_url} alt="comic-cover" />
+          <Link to ={`/comics/${comic.id}`}>
           <p><b>{comic.volume.name} </b><br />
+          
           <small>{comic.name}</small> <br />
           <small>Issue # {comic.issue_number}</small> </p> 
-          <div className="comic-action-button">
-           <AddMyCollectionButton/>
-           <AddWishlistButton/>
-          </div>
           </Link>
+          <div className="comic-action-button">
+           <AddMyCollectionButton
+           id = {comic.id}
+           volume_title = {comic.volume.name}
+           issue_title ={comic.name}
+           issue_number ={comic.issue_number}
+           image={comic.image.original_url}
+           />
+           <AddWishlistButton 
+              id = {comic.id}
+              volume_title = {comic.volume.name}
+              issue_title ={comic.name}
+              issue_number ={comic.issue_number}
+              image={comic.image.original_url}/>
+          </div>
+          
         </div>
         
         
