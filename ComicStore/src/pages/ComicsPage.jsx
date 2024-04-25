@@ -4,6 +4,8 @@ import Pagination from "../components/Pagination";
 import AddMyCollectionButton from "../components/AddMyCollectionButton";
 import AddWishlistButton from "../components/AddWishlistButton";
 import { Link } from "react-router-dom";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 function ComicsPage() {
 
@@ -71,17 +73,22 @@ function ComicsPage() {
     <section>
       <div className="header">
         <h2>Comics</h2>
-        <form>
-          <label>
-            Search comic
-            <input
-              name="searchComic"
-              type="text"
-              onChange={(e) => setSearchComics(e.target.value)}
-              value={searchComic}
-            />
-          </label>
-        </form>
+        <Box
+          component="form"
+          sx={{
+            '& > :not(style)': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+          id="searchComic"
+          label="Search Comic"
+          value= {searchComic}
+          onChange={(e) => setSearchComics(e.target.value)}
+          />
+          </Box>
+        
       </div>
 
       {loading ? (

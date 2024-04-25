@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Pagination from '../components/Pagination';
 import { Link } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 function CharactersPage() {
 
@@ -64,17 +66,21 @@ function CharactersPage() {
     <section>
       <div className="header">
         <h2>Characters</h2>
-        <form>
-          <label>
-            Search character
-            <input
-              name="searchCharacter"
-              type="text"
-              onChange={(e) => setSearchCharacters(e.target.value)}
-              value={searchCharacter}
+        <Box
+          component="form"
+          sx={{
+            '& > :not(style)': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off">
+            <TextField
+            id="searchCharacter"
+            label="Search Character"
+            value={searchCharacter}
+            onChange={(e) => setSearchCharacters(e.target.value)}
+            
             />
-          </label>
-        </form>
+          </Box>
       </div>
 
       {loading ? (

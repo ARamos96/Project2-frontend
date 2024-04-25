@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import Pagination from '../components/Pagination';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
 
 function AuthorsPage() {
   
@@ -66,17 +69,22 @@ function AuthorsPage() {
     <section>
       <div className="header">
         <h2>Authors</h2>
-        <form>
-          <label>
-            Search author
-            <input
-              name="searchAuthor"
-              type="text"
-              onChange={(e) => setSearchAuthors(e.target.value)}
-              value={searchAuthor}
-            />
-          </label>
-        </form>
+        <Box
+          component="form"
+          sx={{
+            '& > :not(style)': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            id="searchAuthor"
+            label="Search Author"
+            value={searchAuthor}
+            onChange={(e) => setSearchAuthors(e.target.value)}
+          />
+        </Box>
+
       </div>
 
       {loading ? (
