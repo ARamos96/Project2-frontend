@@ -43,8 +43,8 @@ function PublishersDetailsPage() {
       {publisher && (
         <div>
           <div className="publisher-intro">
-            <img src={publisher.results.image.icon_url} />
-            <h1>{publisher.results.name}</h1>
+            <img src={publisher.results.image.small_url} />
+            <h2>{publisher.results.name}</h2>
             <p>{removeHTMLTagsAndSpecialChars(publisher.results.deck)}</p>
           </div>
           {/* <table>Publisher Info Table</table> */}
