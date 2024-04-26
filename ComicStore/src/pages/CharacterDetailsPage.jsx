@@ -40,10 +40,17 @@ function CharacterDetailsPage() {
       {character && (
         <div className="character-details">
           <div className="character-intro">
-            <img src={character.results.image.small_url} alt="no image available"/>
+            <img
+              src={character.results.image.small_url}
+              alt="no image available"
+            />
             <div className="character-name-and-intro">
               <h1>{character.results.name}</h1>
-              <p>{character.results.deck ? removeHTMLTagsAndSpecialChars(character.results.deck) : ''}</p>
+              <p>
+                {character.results.deck
+                  ? removeHTMLTagsAndSpecialChars(character.results.deck)
+                  : ""}
+              </p>
             </div>
           </div>
           {/* <table>Character Info table</table> */}
@@ -55,24 +62,34 @@ function CharacterDetailsPage() {
               <tbody>
                 <tr>
                   <th>Super Name</th>
-                  <td>{character.results.name ? character.results.name : '-'}</td>
+                  <td>
+                    {character.results.name ? character.results.name : "-"}
+                  </td>
                 </tr>
                 <tr>
                   <th>Real Name</th>
-                  <td>{character.results.real_name ? character.results.real_name : '-'}</td>
+                  <td>
+                    {character.results.real_name
+                      ? character.results.real_name
+                      : "-"}
+                  </td>
                 </tr>
                 <tr>
                   <th>Publisher</th>
-                  <td>{character.results.publisher.name ? character.results.publisher.name : '-'}</td>
+                  <td>
+                    {character.results.publisher.name
+                      ? character.results.publisher.name
+                      : "-"}
+                  </td>
                 </tr>
                 <tr>
                   <th>Creators</th>
                   <td>
                     {character.results.creators.length
                       ? character.results.creators.map((creator) => (
-                      <li key={creator.id}>{creator.name}</li>
-                    ))
-                    : "-"}
+                          <li key={creator.id}>{creator.name}</li>
+                        ))
+                      : "-"}
                   </td>
                 </tr>
                 {/* <tr>
@@ -90,34 +107,40 @@ function CharacterDetailsPage() {
             <h3>Origin</h3>
             <p>
               {character.results.description
-              ? removeHTMLTagsAndSpecialChars(
-                character.results.description.substring(
-                  character.results.description.indexOf("Origin") +
-                    "origin".length,
-                  character.results.description.indexOf("Creation")
-                ))
+                ? removeHTMLTagsAndSpecialChars(
+                    character.results.description.substring(
+                      character.results.description.indexOf("Origin") +
+                        "origin".length,
+                      character.results.description.indexOf("Creation")
+                    )
+                  )
                 : "Information not available"}
             </p>
             <h3>Creation</h3>
             <p>
-            {character.results.description
-            ? removeHTMLTagsAndSpecialChars(
-                character.results.description.substring(
-                  character.results.description.indexOf("Creation") +
-                    "Creation".length,
-                  character.results.description.indexOf("Character Evolution")
-                ))
-              : "Information not available"}
+              {character.results.description
+                ? removeHTMLTagsAndSpecialChars(
+                    character.results.description.substring(
+                      character.results.description.indexOf("Creation") +
+                        "Creation".length,
+                      character.results.description.indexOf(
+                        "Character Evolution"
+                      )
+                    )
+                  )
+                : "Information not available"}
             </p>
             <h3>Evolution</h3>
             <p>
               {character.results.description
-              ? removeHTMLTagsAndSpecialChars(
-                character.results.description.substring(
-                  character.results.description.indexOf("Character Evolution") +
-                    "Character Evolution".length,
-                  character.results.description.indexOf("Major Story Arcs")
-                ))
+                ? removeHTMLTagsAndSpecialChars(
+                    character.results.description.substring(
+                      character.results.description.indexOf(
+                        "Character Evolution"
+                      ) + "Character Evolution".length,
+                      character.results.description.indexOf("Major Story Arcs")
+                    )
+                  )
                 : "Information not available"}
             </p>
           </div>

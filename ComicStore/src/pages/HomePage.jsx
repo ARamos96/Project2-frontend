@@ -1,64 +1,58 @@
-import {Link} from "react-router-dom"
-import libroComico from "../assets/Images/libro-comico.png"
-import escritor from "../assets/Images/escritor.png"
-import cultura from "../assets/Images/cultura-corporativa.png"
-import capa from "../assets/Images/capa.png"
-import leer from "../assets/Images/leer.png"
-
+import { Link } from "react-router-dom";
+import libroComico from "../assets/Images/libro-comico.png";
+import escritor from "../assets/Images/escritor.png";
+import cultura from "../assets/Images/cultura-corporativa.png";
+import capa from "../assets/Images/capa.png";
+import leer from "../assets/Images/leer.png";
 
 function HomePage() {
   return (
-    <div>
+    <div className="homepage">
       <div>
-      <h1>Comic Keeper</h1>
+        <h1>Comic Keeper</h1>
       </div>
       <section className="pages-container">
-          
-          <div className="page-block">
-          <Link to = "/comics">
+        <div className="page-block">
+          <Link to="/comics">
             <img src={libroComico} alt="Comic cover" />
             <button>Comics</button>
           </Link>
-          </div>
-          
-          <div className="page-block">
-          <Link to ="/authors">
-          <img src={escritor} alt="Author cover" />
-            
-          <button>Authors</button>
+        </div>
+
+        <div className="page-block">
+          <Link to="/authors">
+            <img src={escritor} alt="Author cover" />
+
+            <button>Authors</button>
           </Link>
-          
-          </div>
+        </div>
 
-          <div className="page-block">
-          <Link to = "/publishers">
-          <img src={cultura} alt="Publisher cover" />
-            
-          <button>Publishers</button>
+        <div className="page-block">
+          <Link to="/publishers">
+            <img src={cultura} alt="Publisher cover" />
+
+            <button>Publishers</button>
           </Link>
-          </div>
+        </div>
 
-          <div className="page-block" >
-          <Link to = "/characters">
-          <img src= {capa} alt="Characters cover" />
+        <div className="page-block">
+          <Link to="/characters">
+            <img src={capa} alt="Characters cover" />
 
-          <button>Characters</button>
+            <button>Characters</button>
           </Link>
-          </div>
+        </div>
 
-          <div className="page-block">
-          <Link to = "/myarea">
-          <img src={leer} alt="Personal Area" />
+        <div className="page-block">
+          <Link to="/myarea">
+            <img src={leer} alt="Personal Area" />
 
-          <button>Personal Area</button>
+            <button>Personal Area</button>
           </Link>
-          </div>
-
+        </div>
       </section>
-
-
     </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
