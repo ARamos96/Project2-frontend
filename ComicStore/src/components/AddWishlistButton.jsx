@@ -1,5 +1,8 @@
 import { useState } from "react";
 import axios from "axios"
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 
 function AddWishlistButton({id, volume_title, issue_title,issue_number,image}) {
@@ -22,11 +25,13 @@ const addToWishlist = async () => {
   }
 }
 
-  return (
-    <div>
-      <button onClick={addToWishlist} disabled={added}>$</button>
-      </div>
-  )
+return (
+  <Box sx={{ '& > :not(style)': { m: 1 } }}>
+    <Fab color="secondary" aria-label="add" onClick={addToWishlist} disabled={added}>
+      <FavoriteIcon />
+    </Fab>
+  </Box>
+);
 }
 
 export default AddWishlistButton

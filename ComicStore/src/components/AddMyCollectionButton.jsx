@@ -1,5 +1,10 @@
 import { useState } from "react";
 import axios from "axios"
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+
+
 
 function AddMyCollectionButton({id, volume_title, issue_title,issue_number,image}) {
  
@@ -21,11 +26,13 @@ const addToCollection = async () => {
   }
 } 
   
-  return (
-    <div>
-      <button onClick ={addToCollection} disabled={added}>+</button>
-    </div>
-  )
+return (
+  <Box sx={{ '& > :not(style)': { m: 1 } }}>
+    <Fab color="primary" aria-label="add" onClick={addToCollection} disabled={added}>
+      <AddIcon />
+    </Fab>
+  </Box>
+);
 }
 
 export default AddMyCollectionButton

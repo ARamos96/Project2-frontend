@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import Pagination from '../components/Pagination';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { CircularProgress } from '@mui/material';
 
 
 function AuthorsPage() {
@@ -88,7 +89,7 @@ function AuthorsPage() {
       </div>
 
       {loading ? (
-        <div className="loader">Loading...</div>
+        <CircularProgress/>
       ) : (
 
       <div >

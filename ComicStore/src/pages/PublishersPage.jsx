@@ -4,6 +4,7 @@ import Pagination from '../components/Pagination';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { CircularProgress } from '@mui/material';
 
 
 function PublishersPage() {
@@ -85,7 +86,7 @@ function PublishersPage() {
         </Box>
       </div>
       {loading ? (
-        <div className="loader">Loading...</div>
+        <CircularProgress/>
       ) : (
 
       <div >

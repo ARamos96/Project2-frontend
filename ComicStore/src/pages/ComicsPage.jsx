@@ -6,6 +6,8 @@ import AddWishlistButton from "../components/AddWishlistButton";
 import { Link } from "react-router-dom";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 function ComicsPage() {
 
@@ -92,7 +94,7 @@ function ComicsPage() {
       </div>
 
       {loading ? (
-        <div className="loader">Loading...</div>
+        <CircularProgress/>
       ) : (
         <div>
           {filteredComics.map((comic) => (
