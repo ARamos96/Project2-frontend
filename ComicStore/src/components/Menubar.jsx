@@ -10,6 +10,7 @@ function Menubar() {
           <Link to ="/authors">Authors</Link>
           <Link to ="/publishers">Publishers</Link>
           <Link to ="/characters">Characters</Link>  
+          <Link to = "/myarea">Personal Area</Link>
 
         </nav>
     </div>

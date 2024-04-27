@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Pagination from '../components/Pagination';
 import { Link } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { CircularProgress } from '@mui/material';
+
 
 function PublishersPage() {
 
@@ -9,8 +13,11 @@ function PublishersPage() {
   const [searchPublisher, setSearchPublishers] = useState('');
   const [currentPage,setCurrentPage] = useState(1);
   const [totalPages,setTotalPages] = useState(0)
+  const [loading,setLoading] = useState(false)
+
 
   useEffect(() =>{
+    setLoading(true);
     fetchPublishers();
   },[currentPage]);
 
@@ -31,9 +38,13 @@ function PublishersPage() {
         const totalPagesCount = Math.ceil(response.data.number_of_total_results / 100);
         setTotalPages(totalPagesCount);
         //console.log("Total Pages:", totalPagesCount);
+        setLoading(false)
+
       })
       .catch((error) => {
         console.error("Error 404 Page not found", error);
+        setLoading(false)
+
       })
 
   };
@@ -58,18 +69,25 @@ function PublishersPage() {
     <section>
       <div className="header">
         <h2>Publishers</h2>
-        <form>
-          <label>
-            Search Publisher
-            <input
-              name="searchPublisher"
-              type="text"
-              onChange={(e) => setSearchPublishers(e.target.value)}
-              value={searchPublisher}
-            />
-          </label>
-        </form>
+        <Box
+          component="form"
+          sx={{
+            '& > :not(style)': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            id="searchPublisher"
+            label="Search Publisher"
+            value={searchPublisher}
+            onChange={(e) => setSearchPublishers(e.target.value)}
+          />
+        </Box>
       </div>
+      {loading ? (
+        <CircularProgress/>
+      ) : (
 
       <div >
         {filteredPublishers.map((publisher) => (
@@ -80,6 +98,7 @@ function PublishersPage() {
           </div>
         ))}
       </div>
+      )}
 
       <Pagination
         currentPage={currentPage}
@@ -92,4 +111,4 @@ function PublishersPage() {
   );
 }
 
-export default PublishersPage
+export default PublishersPage;
