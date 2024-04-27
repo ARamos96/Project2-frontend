@@ -1,27 +1,36 @@
-import { useEffect,useState } from "react"
+import { useEffect, useState } from "react"
 import axios from "axios"
+
 
 function MyArea() {
 
-const [collection,setCollection] = useState([]);
-const [wishlist,setWishlist] = useState([])
-const [searchComic,setSearchComic] = useState('');
+  const [collection, setCollection] = useState([]);
+  const [wishlist, setWishlist] = useState([])
 
-useEffect(()=>{
-  axios
-  .get('https://comickeeperbackendapi.adaptable.app/collection')
-  .then((response)=>{
-    setCollection(response.data)
-  })
-},[])
 
-useEffect(()=>{
-  axios
-  .get('https://comickeeperbackendapi.adaptable.app/wishlist')
-  .then((response)=>{
-    setWishlist(response.data)
-  })
-},[])
+  useEffect(() => {
+    axios
+      .get('https://comickeeperbackendapi.adaptable.app/collection')
+      .then((response) => {
+        const collectionArray = response.data;
+        setCollection(collectionArray);
+      })
+  }, [])
+
+  function countObjectsInArray(array) {
+    return array.length;
+  }
+
+  useEffect(() => {
+    axios
+      .get('https://comickeeperbackendapi.adaptable.app/wishlist')
+      .then((response) => {
+        const wishlistArray = response.data;
+        setWishlist(wishlistArray)
+      })
+  }, [])
+
+
 
   return (
     <div>
@@ -33,39 +42,48 @@ useEffect(()=>{
       </section>
 
       <section>
-        <p>Total comics</p>
-        <p>Total Wishlist</p>
+        <h4>My statistic</h4>
+  
+
+        <h5>Total comics</h5>
+
+
+        {countObjectsInArray(collection)}
+
+
+        <h5>Total Wishlist</h5>
+        {countObjectsInArray(wishlist)}
 
 
       </section>
       <section>
-      <div>
-        <h4>My Collection</h4>
         <div>
-          {collection.map((comic) => (
-            <div key={comic.id}>
-              <img src={comic.image} alt="comic-cover" />
-              <p>{comic.volume_title}</p>
-              <p>{comic.issue_title}</p>
-              <p>{comic.issue_number}</p>
-            </div>
-          ))}
+          <h4>My Collection</h4>
+          <div>
+            {collection.map((comic) => (
+              <div key={comic.id}>
+                <img src={comic.image} alt="comic-cover" />
+                <p>{comic.volume_title}</p>
+                <p>{comic.issue_title}</p>
+                <p>{comic.issue_number}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-      <div>
-        <h4>My Wishlist</h4>
         <div>
-          {wishlist.map((comic) => (
-            <div key={comic.id}>
-              <img src={comic.image} alt="comic-cover" />
-              <p>{comic.volume_title}</p>
-              <p>{comic.issue_title}</p>
-              <p>{comic.issue_number}</p>
-            </div>
-          ))}
+          <h4>My Wishlist</h4>
+          <div>
+            {wishlist.map((comic) => (
+              <div key={comic.id}>
+                <img src={comic.image} alt="comic-cover" />
+                <p>{comic.volume_title}</p>
+                <p>{comic.issue_title}</p>
+                <p>{comic.issue_number}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   );
 }
