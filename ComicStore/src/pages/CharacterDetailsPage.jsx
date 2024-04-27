@@ -4,15 +4,42 @@ import { useEffect, useState } from "react";
 
 const characterAPI = `https://corsproxy.io/?https://comicvine.gamespot.com/api/character`;
 
+// function removeHTMLTagsAndSpecialChars(text) {
+//   //Remove <figcaption> tags and their content
+//   const withoutFigCaptionTags = text.replace(
+//     /<figcaption>[\s\S]*?<\/figcaption>/g,
+//     ""
+//   );
+//   // Remove HTML tags except <p> tags
+//   const withoutTagsExceptP = withoutFigCaptionTags.replace(
+//     /<(?!\/?p\b)[^>]*>/g,
+//     ""
+//   );
+//   // Replace <p> tags with newline characters
+//   const withParagraphBreaks = withoutTagsExceptP.replace(/<\/?p[^>]*>/g, "\n");
+//   // Remove special characters except commas, hyphens and full stops
+//   const withoutSpecialChars = withParagraphBreaks.replace(/[^\w\s,.()#-]/g, "");
+//   return withoutSpecialChars;
+// }
+
 function removeHTMLTagsAndSpecialChars(text) {
-  //Remove <figcaption> tags and their content
-  const withoutFigCaptionTags = text.replace(/<figcaption>[\s\S]*?<\/figcaption>/g, '')
-  // Remove HTML tags except <p> tags
-  const withoutTagsExceptP = withoutFigCaptionTags.replace(/<(?!\/?p\b)[^>]*>/g, "");
-  // Replace <p> tags with newline characters
-  const withParagraphBreaks = withoutTagsExceptP.replace(/<\/?p|>/g, "\n");
-  // Remove special characters except commas, hyphens and full stops
-  const withoutSpecialChars = withParagraphBreaks.replace(/[^\w\s,.()#-]/g, "");
+  const withoutFigCaptionTags = text.replace(
+    /<figcaption>[\s\S]*?<\/figcaption>/g,
+    ""
+  );
+
+  const withoutTagsExceptP = withoutFigCaptionTags.replace(
+    /<(?!\/?p\b)[^>]*>/g,
+    ""
+  );
+
+  const withParagraphBreaks = withoutTagsExceptP.replace(
+    /<\/?p[^>]*>/g,
+    "\n"
+  );
+
+  const withoutSpecialChars = withParagraphBreaks.replace(/[^\w\s,.()#\-\n]/g, "");
+  
   return withoutSpecialChars;
 }
 
@@ -33,9 +60,18 @@ function CharacterDetailsPage() {
       });
   }, []);
 
-  // if (character) {
-  //   console.log(typeof character.results.description);
-  // }
+  if (character) {
+    console.log(
+      "Processed text:",
+      removeHTMLTagsAndSpecialChars(
+        character.results.description.substring(
+          character.results.description.indexOf("Character Evolution") +
+            "Character Evolution".length,
+          character.results.description.indexOf("Major Story Arcs")
+        )
+      )
+    );
+  }
 
   return (
     <section>
@@ -108,7 +144,8 @@ function CharacterDetailsPage() {
           <div className="character-history">
             <h3>Origin</h3>
             <p>
-              {character.results.description
+              {character.results.description &&
+              character.results.description.includes("Origin")
                 ? removeHTMLTagsAndSpecialChars(
                     character.results.description.substring(
                       character.results.description.indexOf("Origin") +
@@ -120,7 +157,8 @@ function CharacterDetailsPage() {
             </p>
             <h3>Creation</h3>
             <p>
-              {character.results.description
+              {character.results.description &&
+              character.results.description.includes("Creation")
                 ? removeHTMLTagsAndSpecialChars(
                     character.results.description.substring(
                       character.results.description.indexOf("Creation") +
@@ -134,7 +172,8 @@ function CharacterDetailsPage() {
             </p>
             <h3>Evolution</h3>
             <p>
-              {character.results.description
+              {character.results.description &&
+              character.results.description.includes("Evolution")
                 ? removeHTMLTagsAndSpecialChars(
                     character.results.description.substring(
                       character.results.description.indexOf(
@@ -145,6 +184,7 @@ function CharacterDetailsPage() {
                   )
                 : "Information not available"}
             </p>
+            <h5>{'This is a sample text with \nmultiple lines and \nnewlines within it'}</h5>
           </div>
         </div>
       )}
