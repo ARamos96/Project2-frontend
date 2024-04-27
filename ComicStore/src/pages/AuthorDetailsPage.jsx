@@ -39,8 +39,6 @@ function AuthorDetailsPage() {
 
   console.log(author);
 
-
-
   let originalBirthDate,
     formattedBirthDate,
     originalDeathDate,
@@ -85,71 +83,90 @@ function AuthorDetailsPage() {
   //   : "";
 
   return (
-    <section className="author-details">
+    <section>
       {author && (
-        <div>
+        <div className="author-details">
           <div className="author-intro">
             <img
-              src={author.results.image.icon_url}
+              src={author.results.image.small_url}
               alt={author.results.name}
             />
-            <h1>{author.results.name}</h1>
-            <p>
-              <b>General Information</b>
-            </p>
+            <div className="author-tile-and-deck">
+              <h1>{author.results.name}</h1>
+              <p>
+                {author.results.deck
+                  ? removeHTMLTagsAndSpecialChars(author.results.deck)
+                  : ""}
+              </p>
+            </div>
           </div>
           {/* <table>Author general info table</table> */}
-          <table>
-            <tbody>
-              <tr>
-                <th>Name:</th>
-                <td>{author.results.name}</td>
-              </tr>
-              <tr>
-                <th>Gender:</th>
-                <td> {author.results.gender === 1 ? "Male" : author.results.gender === 2 ? "Female" : "-"}</td>
-              </tr>
-              <tr>
-                <th>Birth:</th>
-                <td>{formattedBirthDate ? formattedBirthDate : "-"}</td>
-              </tr>
-              <tr>
-                <th>Death:</th>
-                <td>{formattedDeathDate ? formattedDeathDate : "-"}</td>
-              </tr>
-              <tr>
-                <th>Town:</th>
-                <td>{author.results.hometown ? author.results.hometown : '-'}</td>
-              </tr>
-              <tr>
-                <th>Country:</th>
-                <td>{author.results.country ? author.results.country : '-'}</td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="genInfo-table">
+            <table>
+              <tbody>
+                <tr>
+                  <th>Name:</th>
+                  <td>{author.results.name}</td>
+                </tr>
+                <tr>
+                  <th>Gender:</th>
+                  <td>
+                    {" "}
+                    {author.results.gender === 1
+                      ? "Male"
+                      : author.results.gender === 2
+                      ? "Female"
+                      : "-"}
+                  </td>
+                </tr>
+                <tr>
+                  <th>Birth:</th>
+                  <td>{formattedBirthDate ? formattedBirthDate : "-"}</td>
+                </tr>
+                <tr>
+                  <th>Death:</th>
+                  <td>{formattedDeathDate ? formattedDeathDate : "-"}</td>
+                </tr>
+                <tr>
+                  <th>Town:</th>
+                  <td>
+                    {author.results.hometown ? author.results.hometown : "-"}
+                  </td>
+                </tr>
+                <tr>
+                  <th>Country:</th>
+                  <td>
+                    {author.results.country ? author.results.country : "-"}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <div className="author-career">
             <h2>Career</h2>
             <p>
-              {removeHTMLTagsAndSpecialChars(
-                author.results.description.substring(
-                  author.results.description.indexOf("Career") +
-                    "Career".length,
-                  author.results.description.indexOf("Personal")
-                )
-              )}
+              {author.results.description
+                ? removeHTMLTagsAndSpecialChars(
+                    author.results.description.substring(
+                      author.results.description.indexOf("Career") +
+                        "Career".length,
+                      author.results.description.indexOf("Personal")
+                    )
+                  )
+                : "Information not available"}
             </p>
-          </div>
-          <div className="characters-created">
-            <h3>Characters Created</h3>
-            {/* List of characters created */}
-            {author.results && (
-            <ul>
-            {/* <li>{author.results.created_characters[0].name}</li> */}
-            {author.results.created_characters.map((character) => {
-              return <li key={character.id}>{character.name}</li>
-            })}
-            </ul>
-            )}
+            <div className="characters-created">
+              <h3>Characters Created</h3>
+              {/* List of characters created */}
+              {author.results && (
+                <ul>
+                  {/* <li>{author.results.created_characters[0].name}</li> */}
+                  {author.results.created_characters.map((character) => {
+                    return <li key={character.id}>{character.name}</li>;
+                  })}
+                </ul>
+              )}
+            </div>
           </div>
         </div>
       )}
