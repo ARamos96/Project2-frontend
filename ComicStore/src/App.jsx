@@ -6,31 +6,34 @@ import ComicsPage from "./pages/ComicsPage";
 import PublishersPage from "./pages/PublishersPage";
 import CharactersPage from "./pages/CharactersPage";
 import MyArea from "./pages/MyPage";
-import Menubar from "./components/Menubar"
+import Menubar from "./components/Menubar";
 import ComicDetailsPage from "./pages/ComicsDetailsPage";
 import PublisherDetailsPage from "./pages/PublishersDetailsPage";
 import CharacterDetailsPage from "./pages/CharacterDetailsPage";
 import AuthorDetailsPage from "./pages/AuthorDetailsPage";
 
-
 function App() {
   return (
-
     <div className="App">
-      
-      <Menubar/>
+      <Menubar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/authors" element={<AuthorsPage />} />
-        <Route path="/comics" element={<ComicsPage />} />
+        <Route path="/comics" element={<ComicsPage />} /> 
         <Route path="/publishers" element={<PublishersPage />} />
         <Route path="/characters" element={<CharactersPage />} />
         <Route path="/myarea" element={<MyArea />} />
-        <Route path="/characters" element={<CharactersPage />} />      
+        <Route path="/characters" element={<CharactersPage />} />
         <Route path="/comics/:issueId" element={<ComicDetailsPage />} />
         <Route path="/authors/:authorId" element={<AuthorDetailsPage />} />
-        <Route path="/characters/:characterId" element={<CharacterDetailsPage />} />
-        <Route path="/publishers/:publisherId" element={<PublisherDetailsPage />} />
+        <Route
+          path="/characters/:characterId"
+          element={<CharacterDetailsPage />}
+        />
+        <Route
+          path="/publishers/:publisherId"
+          element={<PublisherDetailsPage />}
+        />
         <Route path="*" element="Page not found" />
       </Routes>
     </div>

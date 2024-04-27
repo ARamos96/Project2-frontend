@@ -153,7 +153,7 @@ function AuthorDetailsPage() {
                       author.results.description.indexOf("Personal")
                     )
                   )
-                : <p>Information not available</p>}
+                : 'Information not available'}
             </p>
             <div className="characters-created">
               <h3>Characters Created</h3>
