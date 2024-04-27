@@ -153,7 +153,7 @@ function AuthorDetailsPage() {
                       author.results.description.indexOf("Personal")
                     )
                   )
-                : "Information not available"}
+                : <p>Information not available</p>}
             </p>
             <div className="characters-created">
               <h3>Characters Created</h3>
@@ -161,9 +161,11 @@ function AuthorDetailsPage() {
               {author.results && (
                 <ul>
                   {/* <li>{author.results.created_characters[0].name}</li> */}
-                  {author.results.created_characters.map((character) => {
+                  {author.results.created_characters 
+                  ? author.results.created_characters.map((character) => {
                     return <li key={character.id}>{character.name}</li>;
-                  })}
+                  })
+                  : "Information not available"}
                 </ul>
               )}
             </div>
