@@ -153,7 +153,7 @@ function CharacterDetailsPage() {
                       character.results.description.indexOf("Creation")
                     )
                   )
-                : "Information not available"}
+                : <li>Information not available</li>}
             </p>
             <h3>Creation</h3>
             <p>
@@ -168,7 +168,7 @@ function CharacterDetailsPage() {
                       )
                     )
                   )
-                : "Information not available"}
+                : <li>Information not available</li>}
             </p>
             <h3>Evolution</h3>
             <p>
@@ -182,9 +182,8 @@ function CharacterDetailsPage() {
                       character.results.description.indexOf("Major Story Arcs")
                     )
                   )
-                : "Information not available"}
+                : <li>Information not available</li>}
             </p>
-            <h5>{'This is a sample text with \nmultiple lines and \nnewlines within it'}</h5>
           </div>
         </div>
       )}

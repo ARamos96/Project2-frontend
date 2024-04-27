@@ -39,10 +39,10 @@ function ComicDetailsPage() {
   console.log(issueId);
 
   return (
-    <section className="comic-details">
+    <section className="author-details">
       {comic && (
         <div>
-          <div className="issue-name-image">
+          <div className="author-intro">
             <img
               src={comic.results.image.medium_url}
               alt={comic.results.name}
@@ -54,47 +54,51 @@ function ComicDetailsPage() {
             </h2>
           </div>
           {/* <table>Issue table</table> */}
-          <div className="issue-summary">
-            <h3>Summary</h3>
-            <p>
-              {comic.results.description
-                ? removeHTMLTagsAndSpecialChars(comic.results.description)
-                : "No summary available"}
-            </p>
-          </div>
-          <div className="issue-credits">
-            <div className="creators">
-              <h3>Creators</h3>
-              {/* List of creators */}
-              {/* Problemes amb comic.map o creator.map, l'error q dona és q no és cap funció */}
-              {comic.results.person_credits.length ? (
-                <ul>
-                  {comic.results.person_credits.map((creator) => {
+          <div className="author-career">
+            <div className="issue-summary">
+              <h3>Summary</h3>
+              <p>
+                {comic.results.description ? (
+                  removeHTMLTagsAndSpecialChars(comic.results.description)
+                ) : (
+                  <li>No summary available</li>
+                )}
+              </p>
+            </div>
+            <div className="issue-credits">
+              <div className="creators">
+                <h3>Creators</h3>
+                {/* List of creators */}
+                {/* Problemes amb comic.map o creator.map, l'error q dona és q no és cap funció */}
+                {comic.results.person_credits.length ? (
+                  <ul>
+                    {comic.results.person_credits.map((creator) => {
                       return (
                         <li key={creator.id}>
                           <b>{creator.name}</b>: {creator.role}
                         </li>
                       );
                     })}
-                </ul>
-              ) : (
-                "Creators not available"
-              )}
-            </div>
-            <div className="characters">
-              <h3>Characters</h3>
-              {/* List of characters */}
-              {comic.results.character_credits.length ? (
-                <ul>
-                  {comic.results.character_credits.map((character) => (
-                    <li key={character.id}>
-                      {character.name} ({character.id})
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                "Character information not available"
-              )}
+                  </ul>
+                ) : (
+                  "Creators not available"
+                )}
+              </div>
+              <div className="characters-created">
+                <h3>Characters</h3>
+                {/* List of characters */}
+                {comic.results.character_credits.length ? (
+                  <ul>
+                    {comic.results.character_credits.map((character) => (
+                      <li key={character.id}>
+                        {character.name} ({character.id})
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  "Character information not available"
+                )}
+              </div>
             </div>
           </div>
         </div>

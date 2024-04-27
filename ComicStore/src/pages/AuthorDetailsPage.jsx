@@ -44,25 +44,25 @@ function AuthorDetailsPage() {
     originalDeathDate,
     formattedDeathDate;
 
-  // if (author) {
-  //   originalBirthDate = new Date(author.results.birth);
-  //   formattedBirthDate = originalBirthDate.toLocaleDateString("en-US", {
-  //     month: "long",
-  //     day: "numeric",
-  //     year: "numeric",
-  //   });
+  if (author) {
+    originalBirthDate = new Date(author.results.birth);
+    formattedBirthDate = originalBirthDate.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
 
-  //   originalDeathDate = author.results.death.date
-  //     ? new Date(author.results.death.date)
-  //     : null;
-  //   formattedDeathDate = originalDeathDate
-  //     ? originalDeathDate.toLocaleDateString("en-US", {
-  //         month: "long",
-  //         day: "numeric",
-  //         year: "numeric",
-  //       })
-  //     : "";
-  // }
+    originalDeathDate = author.results.death
+      ? new Date(author.results.death.date)
+      : null;
+    formattedDeathDate = originalDeathDate
+      ? originalDeathDate.toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        })
+      : "";
+  }
 
   // const originalBirthDate = new Date(author.results.birth);
   // const formattedBirthDate = originalBirthDate.toLocaleDateString("en-US", {
@@ -121,11 +121,11 @@ function AuthorDetailsPage() {
                 </tr>
                 <tr>
                   <th>Birth:</th>
-                  <td>{formattedBirthDate ? formattedBirthDate : "-"}</td>
+                  <td>{originalBirthDate ? formattedBirthDate : "-"}</td>
                 </tr>
                 <tr>
                   <th>Death:</th>
-                  <td>{formattedDeathDate ? formattedDeathDate : "-"}</td>
+                  <td>{originalDeathDate ? formattedDeathDate : "-"}</td>
                 </tr>
                 <tr>
                   <th>Town:</th>
@@ -153,7 +153,7 @@ function AuthorDetailsPage() {
                       author.results.description.indexOf("Personal")
                     )
                   )
-                : 'Information not available'}
+                : <li>Information not available</li>}
             </p>
             <div className="characters-created">
               <h3>Characters Created</h3>
@@ -165,7 +165,7 @@ function AuthorDetailsPage() {
                   ? author.results.created_characters.map((character) => {
                     return <li key={character.id}>{character.name}</li>;
                   })
-                  : "Information not available"}
+                  : <li>Information not available</li>}
                 </ul>
               )}
             </div>
