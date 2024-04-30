@@ -39,9 +39,9 @@ function ComicDetailsPage() {
   console.log(issueId);
 
   return (
-    <section className="author-details">
+    <section>
       {comic && (
-        <div>
+        <div className="author-details">
           <div className="author-intro">
             <img
               src={comic.results.image.medium_url}
