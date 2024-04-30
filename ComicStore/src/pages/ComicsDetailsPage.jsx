@@ -71,15 +71,22 @@ function ComicDetailsPage() {
                 {/* List of creators */}
                 {/* Problemes amb comic.map o creator.map, l'error q dona és q no és cap funció */}
                 {comic.results.person_credits.length ? (
-                  <ul>
-                    {comic.results.person_credits.map((creator) => {
-                      return (
-                        <li key={creator.id}>
-                          <b>{creator.name}</b>: {creator.role}
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  <div className="genInfo-table">
+                    <table>
+                      <tbody>
+                        {comic.results.person_credits.map((creator) => {
+                          return (
+                            <tr key={creator.id}>
+                              <th>
+                                <b>{creator.name}:</b>
+                              </th>
+                              <td>{creator.role}</td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
                 ) : (
                   "Creators not available"
                 )}
@@ -90,9 +97,7 @@ function ComicDetailsPage() {
                 {comic.results.character_credits.length ? (
                   <ul>
                     {comic.results.character_credits.map((character) => (
-                      <li key={character.id}>
-                        {character.name}
-                      </li>
+                      <li key={character.id}>{character.name}</li>
                     ))}
                   </ul>
                 ) : (
