@@ -68,54 +68,64 @@ function MyArea() {
         <h4>My statistics</h4>
           <div className="statistics">
               <div className="statistics-card">
-                <h5>Total comics</h5>
+                <h5>Your comics</h5>
                 <p> {countObjectsInArray(collection)}</p>
               </div>
 
               <div className="statistics-card">
-              <h5>Total Wishlist</h5>
+              <h5>Your Wishlist</h5>
               <p>{countObjectsInArray(wishlist)}</p> 
               </div>
 
           </div>
       </section>
+      
+      <hr />
 
       <section>
-        <div>
-          <h4>My Collection</h4>
-          <div>
-            {collection.map((comic) => (
-              <div key={comic.id}>
-                <img src={comic.image} alt="comic-cover" />
-                <p>{comic.volume_title}</p>
-                <p>{comic.issue_title}</p>
-                <p>{comic.issue_number}</p>
-                <Stack direction="row" spacing={2}>
-                  <Button
-                    color="error"
-                    variant="outlined"
-                    startIcon={<DeleteIcon />}
-                    onClick={() => removeFromCollectionAndEndpoint(comic.id)}>
-                    Delete
-                  </Button>
+  <div>
+    <h4>My Collection</h4>
+    <div className="collection-scroll-container">
+      <div className="collection-container">
+        {collection.map((comic) => (
+          <div className="collection-card" key={comic.id}>
+            <img src={comic.image} alt="comic-cover" />
+            <p><b>{comic.volume_title}</b></p>
+            <p><em>{comic.issue_title}</em></p>
+            <p>#{comic.issue_number}</p>
+            <div className="collection-card-buttons">
+              <Stack direction="row" spacing={2}>
+                <Button
+                  color="error"
+                  variant="outlined"
+                  startIcon={<DeleteIcon />}
+                  onClick={() => removeFromCollectionAndEndpoint(comic.id)}>
+                  Delete
+                </Button>
               </Stack>
-              </div>
-            ))}
+            </div>
           </div>
-        </div>
-        
-        <div>
-          <h4>My Wishlist</h4>
-          <div>
-            {wishlist.map((comic) => (
-              <div key={comic.id}>
-                <img src={comic.image} alt="comic-cover" />
-                <p>{comic.volume_title}</p>
-                <p>{comic.issue_title}</p>
-                <p>{comic.issue_number}</p>
-                <AddMyCollectionButton comic={comic} addToCollectionAndDeleteInWishlist={addToCollectionAndDeleteInWishlist} />
-                <Stack direction="row" spacing={2}>
-                  <Button
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div>
+    <h4>My Wishlist</h4>
+    <div className="wishlist-scroll-container">
+      <div className="collection-container">
+        {wishlist.map((comic) => (
+          <div className="collection-card" key={comic.id}>
+            <img src={comic.image} alt="comic-cover" />
+            <p><b>{comic.volume_title}</b></p>
+            <p><em>{comic.issue_title}</em></p>
+            <p>#{comic.issue_number}</p>
+            <div className="collection-card-buttons">
+              <AddMyCollectionButton comic={comic} addToCollectionAndDeleteInWishlist={addToCollectionAndDeleteInWishlist} />
+              <Stack direction="row" spacing={2}>
+                <Button
                   color="error"
                   variant="outlined"
                   startIcon={<DeleteIcon />}
@@ -123,11 +133,14 @@ function MyArea() {
                   Delete
                 </Button>
               </Stack>
-              </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 }
