@@ -30,7 +30,6 @@ function PublishersDetailsPage() {
       });
   }, []);
 
-
   // let originalFoundationDate = new Date(publisher.results.birth);
   // let formattedFoundationDate = originalFoundationDate.toLocaleDateString("en-US", {
   //   month: "long",
@@ -49,12 +48,12 @@ function PublishersDetailsPage() {
           </div>
           {/* <table>Publisher Info Table</table> */}
           {/* <div className="publisher-history"> */}
-            {/* <h2>Origin</h2> */}
-            {/* <p>Brief origin</p> */}
-            {/* <div className="Timeline"> */}
-              {/* <h3>Timeline</h3> */}
-              {/* Bulletlist timeline */}
-            {/* </div> */}
+          {/* <h2>Origin</h2> */}
+          {/* <p>Brief origin</p> */}
+          {/* <div className="Timeline"> */}
+          {/* <h3>Timeline</h3> */}
+          {/* Bulletlist timeline */}
+          {/* </div> */}
           {/* </div> */}
         </div>
       )}

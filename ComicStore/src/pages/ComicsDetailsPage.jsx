@@ -91,7 +91,7 @@ function ComicDetailsPage() {
                   <ul>
                     {comic.results.character_credits.map((character) => (
                       <li key={character.id}>
-                        {character.name} ({character.id})
+                        {character.name}
                       </li>
                     ))}
                   </ul>
