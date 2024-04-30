@@ -67,13 +67,17 @@ a {
   margin: 10px;
   margin-left: 420px;
   margin-right: 420px;
-  height: 100px;
+  height: 120px;
 }
+
 
 .author-card img {
   width: 70px;
   padding: 10px;
   margin-left: 40px;
+  border-radius: 20px;
+  max-height: 105px;
+
 }
 
 .author-card p {
@@ -110,6 +114,9 @@ small {
 
 .publisher-intro img {
   width: 200px;
+  border-radius: 20px;
+  max-height: 105px;
+
 }
 
 .character-details h3 {
@@ -217,6 +224,7 @@ tr:nth-child(odd) {
 
 .author-details img {
   width: 300px;
+  border-radius: 20px;
 }
 
 .author-intro {
@@ -288,4 +296,81 @@ p > li {
   gap: 300px;
   text-align: center;
 }
+
+.pagination-style{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  
+}
+
+
+.pagination-style button {
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 200px;
+}
+
+.pagination-style button:hover {
+  background-color: #fff;
+}
+
+.pagination-style button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+.pagination-style span{
+  font-size: 20px;
+  
+}
+
+.loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+h3 {
+  font-size: 40px;
+}
+
+h4{
+
+  font-size: 30px;
+}
+
+h5{
+  font-size: 25px;
+}
+
+.statistics{
+  display: flex;
+  justify-content:space-evenly
+  
+}
+
+.statistics-card{
+  margin: 20px;
+  padding: 20px;
+
+}
+
+
+
+
 

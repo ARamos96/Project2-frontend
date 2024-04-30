@@ -57,19 +57,27 @@ function MyArea() {
   return (
     <div>
       <section>
-        <h3>My Profile</h3>
+        <h3>Welcome to your page!</h3>
         <p>Username: Diogo Barros</p>
         <p>Last connection: 23/04/2023</p>
         <p>Avatar</p>
       </section>
 
       <section>
-        <h4>My statistic</h4>
-  
-        <h5>Total comics</h5>
-        {countObjectsInArray(collection)}
-        <h5>Total Wishlist</h5>
-        {countObjectsInArray(wishlist)}
+
+        <h4>My statistics</h4>
+          <div className="statistics">
+              <div className="statistics-card">
+                <h5>Total comics</h5>
+                <p> {countObjectsInArray(collection)}</p>
+              </div>
+
+              <div className="statistics-card">
+              <h5>Total Wishlist</h5>
+              <p>{countObjectsInArray(wishlist)}</p> 
+              </div>
+
+          </div>
       </section>
 
       <section>
