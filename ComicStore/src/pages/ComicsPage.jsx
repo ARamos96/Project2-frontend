@@ -99,15 +99,17 @@ function ComicsPage() {
         <div>
           {filteredComics.map((comic) => (
             <div className="author-card" key={comic.id}>
-              <img src={comic.image.original_url} alt="comic-cover" />
-              <Link to={`/comics/4000-${comic.id}`}>
-                <p>
-                  <b>{comic.volume.name} </b>
-                  <br />
-                  <small>{comic.name}</small> <br />
-                  <small>Issue # {comic.issue_number}</small>{" "}
-                </p>
-              </Link>
+              <div className="author-card-box">
+                <img src={comic.image.original_url} alt="comic-cover" />
+                <Link to={`/comics/4000-${comic.id}`}>
+                  <p>
+                    <b>{comic.volume.name} </b>
+                    <br />
+                    <small>{comic.name}</small> <br />
+                    <small>Issue # {comic.issue_number}</small>{" "}
+                  </p>
+                </Link>
+              </div>
               <div className="comic-action-button">
                 <AddMyCollectionButton
                   id={comic.id}

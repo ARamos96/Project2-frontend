@@ -4,12 +4,14 @@ import escritor from "../assets/Images/escritor.png";
 import cultura from "../assets/Images/cultura-corporativa.png";
 import capa from "../assets/Images/capa.png";
 import leer from "../assets/Images/leer.png";
+import headerPicture from "../assets/Images/Free Vector _ Comic style background.jpg"
 
 function HomePage() {
   return (
     <div className="homepage">
-      <div>
+      <div className="header-container">
         <h1>Comic Keeper</h1>
+
       </div>
       <section className="pages-container">
         <div className="page-block">

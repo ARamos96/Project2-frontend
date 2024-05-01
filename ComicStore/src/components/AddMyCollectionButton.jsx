@@ -22,7 +22,19 @@ function AddMyCollectionButton({ id, volume_title, issue_title, issue_number, im
       }
     };
 
+    const checkIfinWishlist = async () => {
+      try {
+        const response = await axios.get(`https://comickeeperbackendapi.adaptable.app/wishlist/${id}`);
+        if (response.data) {
+          await removeFromWishlist(id);
+        }
+      } catch (error) {
+        console.log(`An error occurred while checking if comic is in collection`, error);
+      }
+    }
+
     checkIfInCollection();
+    checkIfinWishlist();
   }, [id]);
 
   const addToCollection = async () => {
@@ -41,10 +53,18 @@ function AddMyCollectionButton({ id, volume_title, issue_title, issue_number, im
     }
   };
 
+  const removeFromWishlist = async (comicId) => {
+    try {
+      await axios.delete(`https://comickeeperbackendapi.adaptable.app/wishlist/${comicId}`);
+    } catch (error) {
+      console.error("Error deleting comic from wishlist:", error);
+    }
+  }
+
   return (
     <>
       <Box sx={{ '& > :not(style)': { m: 1 } }}>
-        <Fab color="primary" aria-label="add" onClick={addToCollection} disabled={added}>
+        <Fab aria-label="add" onClick={addToCollection} disabled={added}>
           <AddIcon />
         </Fab>
       </Box>
