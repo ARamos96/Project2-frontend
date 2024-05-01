@@ -23,7 +23,7 @@ function getCurrentDate() {
 
 const items = [
   {
-      label: 'User',
+      label: '',
       icon: <img src={userAvatar} alt="Profile Pic" />,
       items: [
           [
@@ -37,7 +37,7 @@ const items = [
               },
               {
                   label: 'Log Out',
-                  items: [{ label: 'Log Out753' }]
+                  items: [{ label: 'Log Out' }]
               },
               
           ],

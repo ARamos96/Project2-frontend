@@ -40,6 +40,7 @@ function ComicDetailsPage() {
 
   return (
     <section>
+    <hr />
       {comic && (
         <div className="author-details">
           <div className="author-intro">
@@ -53,6 +54,7 @@ function ComicDetailsPage() {
                 : `${comic.results.volume.name} #${comic.results.issue_number}`}
             </h2>
           </div>
+          <hr />
           {/* <table>Issue table</table> */}
           <div className="author-career">
             <div className="issue-summary">
@@ -65,6 +67,7 @@ function ComicDetailsPage() {
                 )}
               </p>
             </div>
+            <hr />
             <div className="issue-credits">
               <div className="creators">
                 <h3>Creators</h3>
@@ -90,6 +93,7 @@ function ComicDetailsPage() {
                 ) : (
                   "Creators not available"
                 )}
+                <hr />
               </div>
               <div className="characters-created">
                 <h3>Characters</h3>
@@ -108,6 +112,7 @@ function ComicDetailsPage() {
           </div>
         </div>
       )}
+      <hr />
     </section>
   );
 }

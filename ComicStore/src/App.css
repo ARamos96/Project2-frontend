@@ -2,22 +2,17 @@
   background-color: rgb(228, 221, 221);
   font-family: "Arimo", sans-serif;
   margin: 0px 20px 20px 20px;
-  
 }
-
 
 h1 {
   font-size: 130px;
   text-align: center;
-  
 }
 
-.header-container{
+.header-container {
   background-image: url(../src/assets/Images/Free\ Vector\ _\ Comic\ style\ background.jpg);
-  width: auto;  
+  width: auto;
 }
-
-
 
 h2 {
   font-size: 100px;
@@ -43,45 +38,29 @@ h2 {
 .page-block-character {
   background-image: url(../src/assets/Images/7675236-b511.jpg);
   background-repeat: no-repeat;
-
-
 }
 
 .page-block-author {
-  
-  background-image:url(../src/assets/Images/2721792-bill_swienkiewicz_3_576.jpg);
+  background-image: url(../src/assets/Images/2721792-bill_swienkiewicz_3_576.jpg);
   background-repeat: no-repeat;
-
-
 }
 
 .page-block-publisher {
-  
-  background-image:url(../src/assets/Images/597575-marvelmysterycomics12_81.jpg);
+  background-image: url(../src/assets/Images/597575-marvelmysterycomics12_81.jpg);
   background-repeat: no-repeat;
   background-position: center;
-
-
 }
 
 .page-block-comics {
-  
-  background-image:url(../src/assets/Images/623-796-667-1-batman.jpg);
+  background-image: url(../src/assets/Images/623-796-667-1-batman.jpg);
   background-repeat: no-repeat;
-
-
 }
 
 .page-block-mypage {
-  
-  background-image:url(../src/assets/Images/hombre.png);
+  background-image: url(../src/assets/Images/hombre.png);
   background-position: center;
   background-repeat: no-repeat;
- 
-
 }
-
-
 
 button {
   border-radius: 8px;
@@ -89,8 +68,6 @@ button {
   width: 140px;
   margin-top: 40px;
 }
-
-
 
 a {
   text-decoration: none;
@@ -108,7 +85,7 @@ a {
   display: flex;
   align-items: center;
   box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
-  rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
   background-color: rgba(235, 235, 235, 0.733);
   border-radius: 10px;
   margin: 10px;
@@ -117,12 +94,10 @@ a {
   height: 120px;
 }
 
-.author-card-box{
-  display:flex;
+.author-card-box {
+  display: flex;
   align-items: center;
-
 }
-
 
 .author-card img {
   width: 70px;
@@ -130,7 +105,6 @@ a {
   margin-left: 40px;
   border-radius: 20px;
   max-height: 105px;
-
 }
 
 .author-card p {
@@ -146,9 +120,7 @@ small {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-
 }
-
 
 .publisher-intro {
   margin: auto 30px;
@@ -161,15 +133,13 @@ small {
 
 .publisher-intro p {
   width: 50vw;
-  
+
   line-height: 30px;
 }
 
 .publisher-intro img {
-  width: 200px;
+  width: 250px;
   border-radius: 20px;
-  max-height: 105px;
-
 }
 
 .character-details h3 {
@@ -183,7 +153,6 @@ small {
   align-items: center;
   text-align: justify;
   gap: 20px;
-  
 }
 
 .character-intro {
@@ -275,6 +244,11 @@ tr:nth-child(odd) {
   line-height: 30px;
 }
 
+.author-details hr {
+  width: 850px;
+  border-color: black;
+}
+
 .author-details img {
   width: 300px;
   border-radius: 20px;
@@ -310,7 +284,8 @@ tr:nth-child(odd) {
   align-items: center;
 }
 
-.author-career p, ul {
+.author-career p,
+ul {
   text-align: justify;
 }
 
@@ -338,7 +313,8 @@ p > li {
   gap: 10px;
   line-height: 30px;
 }
-.creators, .characters-created {
+.creators,
+.characters-created {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -350,15 +326,13 @@ p > li {
   text-align: center;
 }
 
-.pagination-style{
+.pagination-style {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
   margin: 10px;
-  
 }
-
 
 .pagination-style button {
   border-radius: 30px;
@@ -386,16 +360,14 @@ p > li {
   transform: translate(2px, 2px);
 }
 
-.pagination-style span{
+.pagination-style span {
   font-size: 20px;
-  
 }
 
-.loader{
+.loader {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 h3 {
@@ -403,28 +375,27 @@ h3 {
   text-align: center;
 }
 
-h4{
+h4 {
   text-align: center;
   font-size: 30px;
 }
 
-h5{
+h5 {
   font-size: 25px;
 }
 
-.statistics{
+.statistics {
   display: flex;
-  justify-content:space-evenly
-  
+  justify-content: space-evenly;
 }
 
-.statistics-card{
+.statistics-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 10px;
   padding: 10px 140px;
-  border: 1px solid rgba(255, 255, 255, .25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
   background-color: rgba(156, 194, 238, 0.733);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
@@ -432,15 +403,12 @@ h5{
   max-width: 190px;
 }
 
-.statistics-card:last-child{
+.statistics-card:last-child {
   background-color: rgba(139, 190, 162, 0.781);
-
 }
 
-
-.statistics-card p{
+.statistics-card p {
   font-size: 90px;
-  
 }
 
 .collection-scroll-container,
@@ -474,10 +442,8 @@ h5{
   max-height: 500px;
   min-height: 500px;
   overflow: hidden;
-  word-wrap: break-word;  
+  word-wrap: break-word;
   background-color: rgba(235, 235, 235, 0.733);
-
-  
 }
 
 .collection-card img {
@@ -485,13 +451,12 @@ h5{
   border-radius: 20px;
 }
 
-.collection-card p{
+.collection-card p {
   text-align: center;
-  max-width: 180px; 
+  max-width: 180px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  
 }
 
 .collection-card-buttons {
@@ -517,91 +482,3 @@ hr {
   width: 50px;
   border-radius: 30px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
