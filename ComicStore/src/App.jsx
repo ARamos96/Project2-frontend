@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/authors" element={<AuthorsPage />} />
-        <Route path="/comics" element={<ComicsPage />} /> 
+        <Route path="/comics" element={<ComicsPage />} />
         <Route path="/publishers" element={<PublishersPage />} />
         <Route path="/characters" element={<CharactersPage />} />
         <Route path="/myarea" element={<MyArea />} />

@@ -1,21 +1,32 @@
-import { Link } from 'react-router-dom'
-
+import { Link } from "react-router-dom";
 
 function Menubar() {
   return (
-    <div>
-        <nav>
-          <Link to ="/">Home</Link>
-          <Link to ="/comics">Comics</Link>
-          <Link to ="/authors">Authors</Link>
-          <Link to ="/publishers">Publishers</Link>
-          <Link to ="/characters">Characters</Link>  
-          <Link to = "/myarea">Personal Area</Link>
-
-        </nav>
+    <div className="menubar-container">
+      <nav className="menubar">
+        <ul className="nav-list">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/comics">Comics</Link>
+          </li>
+          <li>
+            <Link to="/authors">Authors</Link>
+          </li>
+          <li>
+            <Link to="/publishers">Publishers</Link>
+          </li>
+          <li>
+            <Link to="/characters">Characters</Link>
+          </li>
+          <li className="active">
+            <Link to="/myarea">Personal Area</Link>
+          </li>
+        </ul>
+      </nav>
     </div>
-
-  )
+  );
 }
 
-export default Menubar
+export default Menubar;
