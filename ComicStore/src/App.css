@@ -22,6 +22,7 @@ h2 {
 .pages-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .page-block {
@@ -520,3 +521,4 @@ hr {
 .nav-list li:last-child {
   float: right;
 }
+
