@@ -154,6 +154,11 @@ small {
   gap: 20px;
 }
 
+.character-details hr {
+  width: 850px;
+  border-color: black;
+}
+
 .character-intro {
   display: flex;
   justify-content: center;

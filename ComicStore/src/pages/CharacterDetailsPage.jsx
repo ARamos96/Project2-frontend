@@ -75,6 +75,7 @@ function CharacterDetailsPage() {
 
   return (
     <section>
+    <hr />
       {character && (
         <div className="character-details">
           <div className="character-intro">
@@ -91,6 +92,7 @@ function CharacterDetailsPage() {
               </p>
             </div>
           </div>
+          <hr />
           {/* <table>Character Info table</table> */}
           <div className="genInfo-table">
             <h3>
@@ -141,7 +143,8 @@ function CharacterDetailsPage() {
               </tbody>
             </table>
           </div>
-          <div className="character-history">
+          <hr />
+          <div className="character-details">
             <h3>Origin</h3>
             <p>
               {character.results.description &&
@@ -155,6 +158,7 @@ function CharacterDetailsPage() {
                   )
                 : <li>Information not available</li>}
             </p>
+            <hr />
             <h3>Creation</h3>
             <p>
               {character.results.description &&
@@ -170,6 +174,7 @@ function CharacterDetailsPage() {
                   )
                 : <li>Information not available</li>}
             </p>
+            <hr />
             <h3>Evolution</h3>
             <p>
               {character.results.description &&
@@ -187,6 +192,7 @@ function CharacterDetailsPage() {
           </div>
         </div>
       )}
+      <hr />
     </section>
   );
 }
