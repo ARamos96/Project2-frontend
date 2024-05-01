@@ -24,7 +24,7 @@ function getCurrentDate() {
 const items = [
   {
       label: 'User',
-      icon: 'pi pi-box',
+      icon: <img src={userAvatar} alt="Profile Pic" />,
       items: [
           [
               {
@@ -35,6 +35,11 @@ const items = [
                   label: 'Last Connection',
                   items: [{ label: getCurrentDate() }]
               },
+              {
+                  label: 'Log Out',
+                  items: [{ label: 'Log Out753' }]
+              },
+              
           ],
       ]
   },
@@ -125,7 +130,7 @@ function MyArea() {
         </Box>
         
         <div className="card">
-            <MegaMenu model={items} orientation="vertical" />
+            <MegaMenu model={items} orientation="vertical"/>
         </div>
 
         {/* <img src={userAvatar} alt={userAvatar}/> */}

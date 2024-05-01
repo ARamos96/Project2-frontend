@@ -475,6 +475,11 @@ hr {
   line-height: 30px;
 }
 
+.card img {
+  width: 50px;
+  border-radius: 30px;
+}
+
 
 
 
