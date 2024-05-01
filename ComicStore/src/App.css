@@ -60,16 +60,21 @@ a {
 
 .author-card {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
-    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
   background-color: rgba(235, 235, 235, 0.733);
   border-radius: 10px;
   margin: 10px;
   margin-left: 420px;
   margin-right: 420px;
   height: 120px;
+}
+
+.author-card-box{
+  display:flex;
+  align-items: center;
+
 }
 
 
@@ -93,11 +98,11 @@ small {
 
 .comic-action-button {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
 }
 
-.comic-action-button button {
-  width: 60px;
-}
 
 .publisher-intro {
   margin: auto 30px;
@@ -421,6 +426,8 @@ h5{
   min-height: 500px;
   overflow: hidden;
   word-wrap: break-word;  
+  background-color: rgba(235, 235, 235, 0.733);
+
   
 }
 

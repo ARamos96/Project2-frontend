@@ -9,31 +9,38 @@ function MyArea() {
   const [collection, setCollection] = useState([]);
   const [wishlist, setWishlist] = useState([]);
 
-  useEffect(() => {
-    axios.get('https://comickeeperbackendapi.adaptable.app/collection')
-      .then((response) => {
-        const collectionArray = response.data;
-        setCollection(collectionArray);
-      });
-  }, []);
+
+  //refactor trying tu use an interval for updating the page. Not working IDK...
 
   useEffect(() => {
-    axios.get('https://comickeeperbackendapi.adaptable.app/wishlist')
+    updatePage()
+      const interval = setInterval(updatePage,30000)
+
+      return () => clearInterval(interval)
+
+    },[])
+
+
+    const updatePage = () => {
+      axios.get('https://comickeeperbackendapi.adaptable.app/collection')
       .then((response) => {
-        const wishlistArray = response.data;
-        setWishlist(wishlistArray);
-      });
-  }, []);
+        setCollection(response.data);
+      })
+
+      axios.get('https://comickeeperbackendapi.adaptable.app/wishlist')
+      .then((response) => {
+        setWishlist(response.data);
+      })
+
+    }
+
+   
 
   function countObjectsInArray(array) {
     return array.length;
   }
 
-  const addToCollectionAndDeleteInWishlist = (comic) => {
-    setCollection([...collection, comic]);
-    setWishlist(wishlist.filter(item => item.id !== comic.id));
-  };
-
+ 
   const removeFromCollectionAndEndpoint = (comicId) => {
     axios.delete(`https://comickeeperbackendapi.adaptable.app/collection/${comicId}`)
       .then(() => {
@@ -123,7 +130,13 @@ function MyArea() {
             <p><em>{comic.issue_title}</em></p>
             <p>#{comic.issue_number}</p>
             <div className="collection-card-buttons">
-              <AddMyCollectionButton comic={comic} addToCollectionAndDeleteInWishlist={addToCollectionAndDeleteInWishlist} />
+              <AddMyCollectionButton
+                id = {comic.id}
+                image = {comic.image}
+                volume_title = {comic.volume_title}
+                issue_title = {comic.issue_title}
+                issue_number = {comic.issue_number}  
+                 />
               <Stack direction="row" spacing={2}>
                 <Button
                   color="error"
