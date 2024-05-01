@@ -84,6 +84,7 @@ function AuthorDetailsPage() {
 
   return (
     <section>
+      <hr />
       {author && (
         <div className="author-details">
           <div className="author-intro">
@@ -100,8 +101,12 @@ function AuthorDetailsPage() {
               </p>
             </div>
           </div>
+          <hr />
           {/* <table>Author general info table</table> */}
           <div className="genInfo-table">
+            <h3>
+              <b>General Information</b>
+            </h3>
             <table>
               <tbody>
                 <tr>
@@ -142,36 +147,43 @@ function AuthorDetailsPage() {
               </tbody>
             </table>
           </div>
+          <hr />
           <div className="author-career">
             <h2>Career</h2>
             <p>
-              {author.results.description
-                ? removeHTMLTagsAndSpecialChars(
-                    author.results.description.substring(
-                      author.results.description.indexOf("Career") +
-                        "Career".length,
-                      author.results.description.indexOf("Personal")
-                    )
+              {author.results.description ? (
+                removeHTMLTagsAndSpecialChars(
+                  author.results.description.substring(
+                    author.results.description.indexOf("Career") +
+                      "Career".length,
+                    author.results.description.indexOf("Personal")
                   )
-                : <li>Information not available</li>}
+                )
+              ) : (
+                <li>Information not available</li>
+              )}
             </p>
+            <hr />
             <div className="characters-created">
               <h3>Characters Created</h3>
               {/* List of characters created */}
               {author.results && (
                 <ul>
                   {/* <li>{author.results.created_characters[0].name}</li> */}
-                  {author.results.created_characters 
-                  ? author.results.created_characters.map((character) => {
-                    return <li key={character.id}>{character.name}</li>;
-                  })
-                  : <li>Information not available</li>}
+                  {author.results.created_characters ? (
+                    author.results.created_characters.map((character) => {
+                      return <li key={character.id}>{character.name}</li>;
+                    })
+                  ) : (
+                    <li>Information not available</li>
+                  )}
                 </ul>
               )}
             </div>
           </div>
         </div>
       )}
+      <hr />
     </section>
   );
 }
