@@ -64,7 +64,7 @@ function AddMyCollectionButton({ id, volume_title, issue_title, issue_number, im
   return (
     <>
       <Box sx={{ '& > :not(style)': { m: 1 } }}>
-        <Fab color="primary" aria-label="add" onClick={addToCollection} disabled={added}>
+        <Fab aria-label="add" onClick={addToCollection} disabled={added}>
           <AddIcon />
         </Fab>
       </Box>

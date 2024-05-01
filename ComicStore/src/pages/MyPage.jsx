@@ -4,10 +4,14 @@ import AddMyCollectionButton from "../components/AddMyCollectionButton";
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 function MyArea() {
   const [collection, setCollection] = useState([]);
   const [wishlist, setWishlist] = useState([]);
+  const [searchComic, setSearchComics] = useState('');
+
 
 
   //refactor trying tu use an interval for updating the page. Not working IDK...
@@ -61,10 +65,33 @@ function MyArea() {
       });
   };
 
+  const filteredCollection = collection.filter(comic =>
+    comic.volume_title.toLowerCase().includes(searchComic.toLowerCase())
+  );
+
+  const filteredWishlist = wishlist.filter(comic =>
+    comic.volume_title.toLowerCase().includes(searchComic.toLowerCase())
+  );
+
   return (
     <div>
       <section>
         <h3>Welcome to your page!</h3>
+        <Box
+          component="form"
+          sx={{
+            '& > :not(style)': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            id="searchComics"
+            label="Search your comics"
+            value={searchComic}
+            onChange={(e) => setSearchComics(e.target.value)}
+          />
+        </Box>
         <p>Username: Diogo Barros</p>
         <p>Last connection: 23/04/2023</p>
         <p>Avatar</p>
@@ -91,10 +118,11 @@ function MyArea() {
 
       <section>
   <div>
-    <h4>My Collection</h4>
+    <h4>My Collection</h4>     
     <div className="collection-scroll-container">
+      
       <div className="collection-container">
-        {collection.map((comic) => (
+        {filteredCollection.map((comic) => (
           <div className="collection-card" key={comic.id}>
             <img src={comic.image} alt="comic-cover" />
             <p><b>{comic.volume_title}</b></p>
@@ -123,7 +151,7 @@ function MyArea() {
     <h4>My Wishlist</h4>
     <div className="wishlist-scroll-container">
       <div className="collection-container">
-        {wishlist.map((comic) => (
+        {filteredWishlist.map((comic) => (
           <div className="collection-card" key={comic.id}>
             <img src={comic.image} alt="comic-cover" />
             <p><b>{comic.volume_title}</b></p>

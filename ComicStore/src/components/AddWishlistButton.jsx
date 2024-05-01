@@ -36,7 +36,7 @@ const addToWishlist = async () => {
       image:image
     })
     setAdded(true);
-    toast.current.show({ severity: 'success', summary: 'Success', detail: 'Comic added to wishlist' });
+    toast.current.show({ severity: 'info', summary: 'Success', detail: 'Comic added to wishlist' });
 
   }
   catch (error){
@@ -48,7 +48,7 @@ return (
   <>
 
   <Box sx={{ '& > :not(style)': { m: 1 } }}>
-    <Fab color="secondary" aria-label="add" onClick={addToWishlist} disabled={added}>
+    <Fab color="primary" aria-label="add" onClick={addToWishlist} disabled={added}>
       <FavoriteIcon />
     </Fab>
   </Box>
