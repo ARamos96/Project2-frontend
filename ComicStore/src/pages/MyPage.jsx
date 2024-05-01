@@ -6,6 +6,39 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import userAvatar from '../assets/Images/DiogoAvatar.jpg'
+
+
+import { MegaMenu } from 'primereact/megamenu';
+      
+
+function getCurrentDate() {
+  const date = new Date();
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Month starts from 0
+  const year = date.getFullYear();
+
+  return `${day}/${month}/${year}`;
+}
+
+const items = [
+  {
+      label: 'User',
+      icon: 'pi pi-box',
+      items: [
+          [
+              {
+                  label: 'Username',
+                  items: [{ label: 'Diogo Barros' }],
+              },
+              {
+                  label: 'Last Connection',
+                  items: [{ label: getCurrentDate() }]
+              },
+          ],
+      ]
+  },
+];
 
 function MyArea() {
   const [collection, setCollection] = useState([]);
@@ -13,32 +46,29 @@ function MyArea() {
   const [searchComic, setSearchComics] = useState('');
 
 
-
   //refactor trying tu use an interval for updating the page. Not working IDK...
 
   useEffect(() => {
     updatePage()
-      const interval = setInterval(updatePage,30000)
+      const interval = setInterval(updatePage, 30000)
 
       return () => clearInterval(interval)
 
     },[])
-
-
-    const updatePage = () => {
-      axios.get('https://comickeeperbackendapi.adaptable.app/collection')
-      .then((response) => {
-        setCollection(response.data);
-      })
-
-      axios.get('https://comickeeperbackendapi.adaptable.app/wishlist')
-      .then((response) => {
-        setWishlist(response.data);
-      })
-
-    }
-
-   
+  
+  const updatePage = () => {
+    axios.get('https://comickeeperbackendapi.adaptable.app/collection')
+    .then((response) => {
+      setCollection(response.data);
+    })
+    
+    axios.get('https://comickeeperbackendapi.adaptable.app/wishlist')
+    .then((response) => {
+      setWishlist(response.data);
+    })
+    
+  }
+  
 
   function countObjectsInArray(array) {
     return array.length;
@@ -75,9 +105,9 @@ function MyArea() {
 
   return (
     <div>
-      <section>
-        
         <h3>Welcome to your page!</h3>
+      <section className="user-details">
+        
         <Box
           component="form"
           sx={{
@@ -93,9 +123,12 @@ function MyArea() {
             onChange={(e) => setSearchComics(e.target.value)}
           />
         </Box>
-        <p>Username: Diogo Barros</p>
-        <p>Last connection: 23/04/2023</p>
-        <p>Avatar</p>
+        
+        <div className="card">
+            <MegaMenu model={items} orientation="vertical" />
+        </div>
+
+        {/* <img src={userAvatar} alt={userAvatar}/> */}
       </section>
 
       <section>
