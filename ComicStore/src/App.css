@@ -40,9 +40,48 @@ h2 {
   background-color: rgba(235, 235, 235, 0.733);
 }
 
-.page-block img {
-  width: 130px;
+.page-block-character {
+  background-image: url(../src/assets/Images/7675236-b511.jpg);
+  background-repeat: no-repeat;
+
+
 }
+
+.page-block-author {
+  
+  background-image:url(../src/assets/Images/2721792-bill_swienkiewicz_3_576.jpg);
+  background-repeat: no-repeat;
+
+
+}
+
+.page-block-publisher {
+  
+  background-image:url(../src/assets/Images/597575-marvelmysterycomics12_81.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+
+}
+
+.page-block-comics {
+  
+  background-image:url(../src/assets/Images/623-796-667-1-batman.jpg);
+  background-repeat: no-repeat;
+
+
+}
+
+.page-block-mypage {
+  
+  background-image:url(../src/assets/Images/hombre.png);
+  background-position: center;
+  background-repeat: no-repeat;
+ 
+
+}
+
+
 
 button {
   border-radius: 8px;
@@ -51,8 +90,7 @@ button {
   margin-top: 40px;
 }
 
-nav {
-}
+
 
 a {
   text-decoration: none;
@@ -463,6 +501,88 @@ h5{
 hr {
   margin: 40px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
