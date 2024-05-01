@@ -124,7 +124,7 @@ small {
 
 .publisher-intro {
   margin: auto 30px;
-  padding: 100px;
+  /* padding: 100px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -133,7 +133,6 @@ small {
 
 .publisher-intro p {
   width: 50vw;
-
   line-height: 30px;
 }
 

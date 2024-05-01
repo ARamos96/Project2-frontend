@@ -39,6 +39,7 @@ function PublishersDetailsPage() {
 
   return (
     <section className="publisher-details">
+    <hr />
       {publisher && (
         <div>
           <div className="publisher-intro">
@@ -57,6 +58,7 @@ function PublishersDetailsPage() {
           {/* </div> */}
         </div>
       )}
+      <hr />
     </section>
   );
 }
