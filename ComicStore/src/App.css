@@ -9,7 +9,15 @@
 h1 {
   font-size: 130px;
   text-align: center;
+  
 }
+
+.header-container{
+  background-image: url(../src/assets/Images/Free\ Vector\ _\ Comic\ style\ background.jpg);
+  width: auto;  
+}
+
+
 
 h2 {
   font-size: 100px;
@@ -354,6 +362,7 @@ p > li {
 
 h3 {
   font-size: 40px;
+  text-align: center;
 }
 
 h4{
@@ -454,6 +463,8 @@ h5{
 hr {
   margin: 40px;
 }
+
+
 
 
 
