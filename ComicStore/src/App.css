@@ -534,6 +534,7 @@ hr {
   justify-content: center;
   width: 180px;
   background-color: transparent;
+  border: none;
 }
 
 .p-menuitem-content > a > img {
