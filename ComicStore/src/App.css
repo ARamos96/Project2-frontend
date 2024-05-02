@@ -68,11 +68,21 @@ h2 {
   background-repeat: no-repeat;
 }
 
-button {
+.page-block button{
+  border: 2px solid white;
+  color: white;
+  background-color: transparent;
   border-radius: 8px;
   padding: 10px;
   width: 140px;
-  margin-top: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 800;
+  border-width: 4px;
+}
+.page-block button:hover{
+  background-color: white;
+  color: black;
 }
 
 a {
