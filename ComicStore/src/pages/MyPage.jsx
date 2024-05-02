@@ -54,23 +54,23 @@ function MyArea() {
 
   useEffect(() => {
     updatePage();
-    const interval = setInterval(updatePage, 30000);
+    //const interval = setInterval(updatePage, 30000);
 
-    return () => clearInterval(interval);
+    //return () => clearInterval(interval);
   }, []);
 
-  const updatePage = () => {
-    axios
-      .get("https://comickeeperbackendapi.adaptable.app/collection")
-      .then((response) => {
-        setCollection(response.data);
-      });
+  const updatePage = async () => {
+    console.log("x")
+    const responseCollection = await axios.get(
+      "https://comickeeperbackendapi.adaptable.app/collection"
+    );
+    const responseWishlist = await axios.get(
+      "https://comickeeperbackendapi.adaptable.app/wishlist"
+    );
 
-    axios
-      .get("https://comickeeperbackendapi.adaptable.app/wishlist")
-      .then((response) => {
-        setWishlist(response.data);
-      });
+    setCollection(responseCollection.data);
+    console.log(responseWishlist.data)
+    setWishlist(responseWishlist.data);
   };
 
   function countObjectsInArray(array) {
@@ -78,12 +78,14 @@ function MyArea() {
   }
 
   const removeFromCollectionAndEndpoint = (comicId) => {
+    console.log("x")
     axios
       .delete(
         `https://comickeeperbackendapi.adaptable.app/collection/${comicId}`
       )
       .then(() => {
         setCollection(collection.filter((comic) => comic.id !== comicId));
+        updatePage();
       })
       .catch((error) => {
         console.error("Error deleting comic from collection:", error);
@@ -91,10 +93,12 @@ function MyArea() {
   };
 
   const removeFromWishlistAndEndpoint = (comicId) => {
+    console.log("x")
     axios
       .delete(`https://comickeeperbackendapi.adaptable.app/wishlist/${comicId}`)
       .then(() => {
         setWishlist(wishlist.filter((comic) => comic.id !== comicId));
+        updatePage()
       })
       .catch((error) => {
         console.error("Error deleting comic from wishlist:", error);
@@ -160,16 +164,17 @@ function MyArea() {
             <div className="collection-container">
               {filteredCollection.map((comic) => (
                 <div className="collection-card" key={comic.id}>
-                    <Link to={`/comics/4000-${comic.id}`}>
-                  <img src={comic.image} alt="comic-cover" />
-                  <p>
-                    <b>{comic.volume_title}</b>
-                  </p>
-                  <p>
-                    <em>{comic.issue_title}</em>
-                  </p>
-                  <p>#{comic.issue_number}</p>
-                  <div className="collection-card-buttons">
+                  <Link to={`/comics/4000-${comic.id}`}>
+                    <img src={comic.image} alt="comic-cover" />
+                    <p>
+                      <b>{comic.volume_title}</b>
+                    </p>
+                    <p>
+                      <em>{comic.issue_title}</em>
+                    </p>
+                    <p>#{comic.issue_number}</p>
+                  </Link>
+                    <div className="collection-card-buttons">
                       <Stack direction="row" spacing={2}>
                         <Button
                           color="error"
@@ -182,8 +187,7 @@ function MyArea() {
                           Delete
                         </Button>
                       </Stack>
-                  </div>
-                    </Link>
+                    </div>
                 </div>
               ))}
             </div>
@@ -213,6 +217,7 @@ function MyArea() {
                       volume_title={comic.volume_title}
                       issue_title={comic.issue_title}
                       issue_number={comic.issue_number}
+                      updatePage={updatePage}
                     />
                     <Stack direction="row" spacing={2}>
                       <Button

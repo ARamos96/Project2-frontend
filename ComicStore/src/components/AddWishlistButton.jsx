@@ -15,20 +15,33 @@ function AddWishlistButton({
   const [added, setAdded] = useState(false);
   const toast = useRef(null);
 
+  // axios.interceptors.use(
+  //   response => response,
+  //   error => {
+  //     if (error.response && error.response.status === 404){
+  //       return error.response
+  //     }
+  //     return Promise.reject(error)
+  //   }
+  // )
+
   useEffect(() => {
     const checkIfInWishlist = async () => {
       try {
         const response = await axios.get(
           `https://comickeeperbackendapi.adaptable.app/wishlist/${id}`
         );
-        if (response.data) {
+       
+        if (response && response.data) {
           setAdded(true);
         }
       } catch (error) {
-        console.log(
-          "An error occurred while checking if comic is in collection",
-          error
-        );
+        if (!(error.response && error.response.status === 404)){
+          console.log(
+            "An error occurred while checking if comic is in collection",
+            error
+          );
+        }
       }
     };
     checkIfInWishlist();
