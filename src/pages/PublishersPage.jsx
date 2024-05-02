@@ -86,7 +86,14 @@ function PublishersPage() {
         </Box>
       </div>
       {loading ? (
-        <CircularProgress/>
+        <CircularProgress
+          sx={{
+            position: 'relative',
+            top: '50%',
+            left: '50%',
+            marginBottom: '100px',  
+          }}
+        />
       ) : (
 
       <div >

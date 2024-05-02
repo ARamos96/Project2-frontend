@@ -544,3 +544,10 @@ hr {
 .creator-role {
   text-transform: capitalize;
 }
+
+/* .MuiCircularProgress-svg {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-left: 500px;
+} */
