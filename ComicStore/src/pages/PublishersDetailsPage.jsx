@@ -5,12 +5,22 @@ import { useEffect, useState } from "react";
 const publisherAPI = `https://corsproxy.io/?https://comicvine.gamespot.com/api/publisher`;
 
 function removeHTMLTagsAndSpecialChars(text) {
+  const withoutFigCaptionTags = text.replace(
+    /<figcaption>[\s\S]*?<\/figcaption>/g,
+    ""
+  );
   // Remove HTML tags except <p> tags
-  const withoutTagsExceptP = text.replace(/<(?!\/?p\b)[^>]*>/g, "");
+  const withoutTagsExceptP = withoutFigCaptionTags.replace(
+    /<(?!\/?p\b)[^>]*>/g,
+    ""
+  );
   // Replace <p> tags with newline characters
-  const withParagraphBreaks = withoutTagsExceptP.replace(/<\/?p>/g, "\n");
+  const withParagraphBreaks = withoutTagsExceptP.replace(/<\/?p[^>]*>/g, "\n");
   // Remove special characters except commas and full stops
-  const withoutSpecialChars = withParagraphBreaks.replace(/[^\w\s,.]/g, "");
+  const withoutSpecialChars = withParagraphBreaks.replace(
+    /[^\w\s,.()#\-\n']/g,
+    ""
+  );
   return withoutSpecialChars;
 }
 
