@@ -479,7 +479,7 @@ hr {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #818980;
+  background-color: #a5d508ca;
 }
 
 .nav-list li {
@@ -494,12 +494,16 @@ hr {
   text-decoration: none;
 }
 
-.nav-list li a:hover:not(.active) {
-  background-color: #111;
+.nav-list li a:hover {
+  background-color: #04AA6D;
 }
 
 .active {
   background-color: #04AA6D;
+}
+
+.nav-list li:last-child a:hover {
+  background-color: #a5d508ca;
 }
 
 .nav-list li:last-child {
