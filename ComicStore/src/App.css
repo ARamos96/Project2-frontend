@@ -528,3 +528,7 @@ hr {
   width: 100px;
   border-radius: 50%;
 }
+
+.creator-role {
+  text-transform: capitalize;
+}

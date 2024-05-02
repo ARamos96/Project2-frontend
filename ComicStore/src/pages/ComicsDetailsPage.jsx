@@ -84,7 +84,7 @@ function ComicDetailsPage() {
                               <th>
                                 <b>{creator.name}:</b>
                               </th>
-                              <td>{creator.role}</td>
+                              <td className="creator-role">{creator.role}</td>
                             </tr>
                           );
                         })}
