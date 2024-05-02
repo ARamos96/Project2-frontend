@@ -50,7 +50,7 @@ function ComicDetailsPage() {
               alt={comic.results.name}
             />
             <h2>
-              {comic.results.name
+              {comic.results.name && comic.results.name.length < 30
                 ? comic.results.name
                 : `${comic.results.volume.name} #${comic.results.issue_number}`}
             </h2>

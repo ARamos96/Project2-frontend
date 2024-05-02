@@ -1,76 +1,75 @@
-import axios from "axios"
-import {useState,useEffect} from "react"
+import axios from "axios";
+import { useState, useEffect } from "react";
 import Pagination from "../components/Pagination";
 import AddMyCollectionButton from "../components/AddMyCollectionButton";
 import AddWishlistButton from "../components/AddWishlistButton";
 import { Link } from "react-router-dom";
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import CircularProgress from '@mui/material/CircularProgress';
-
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function ComicsPage() {
-
   const [comics, setComics] = useState([]);
-  const [searchComic, setSearchComics] = useState('');
-  const [currentPage,setCurrentPage] = useState(1);
-  const [totalPages,setTotalPages] = useState(0)
-  const [loading,setLoading] = useState(false)
+  const [searchComic, setSearchComics] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() =>{
+  useEffect(() => {
     setLoading(true);
     fetchComics();
-  },[currentPage]);  
-    
+  }, [currentPage]);
+
   const fetchComics = () => {
-    const offset = (currentPage -1) * 100
+    const offset = (currentPage - 1) * 100;
     axios
       .get(
         `https://corsproxy.io/?https://comicvine.gamespot.com/api/issues/?api_key=14c652d473fc13e73ef42b10edd6423d911d4969&format=json&offset=${offset}`,
-       {
-          withCredentials: false
+        {
+          withCredentials: false,
         }
       )
       .then((response) => {
-
         const sortedComics = response.data.results
-          .filter(comic => comic.name !== null)
-          .sort((a,b)=> a.name.localeCompare(b.name))
+          .filter((comic) => comic.name !== null)
+          .sort((a, b) => a.name.localeCompare(b.name));
         setComics(sortedComics);
 
         setComics(sortedComics);
-        const totalPagesCount = Math.ceil(response.data.number_of_total_results / 100);
+        const totalPagesCount = Math.ceil(
+          response.data.number_of_total_results / 100
+        );
         setTotalPages(totalPagesCount);
         //console.log("Total Pages:", totalPagesCount);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error 404 Page not found", error);
-        setLoading(false)
-      })
-
+        setLoading(false);
+      });
   };
 
-  const handleNextPage =() => {
-    if (currentPage < totalPages){
-      setCurrentPage (currentPage +1)
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
     }
-  }
+  };
 
   const handlePrevPage = () => {
-    if (currentPage > 1){
-      setCurrentPage(currentPage -1)
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
     }
-  }
+  };
 
-  const filteredComics = comics.filter((comic) =>
-    comic && comic.name && comic.name.toLowerCase().includes(searchComic.toLowerCase())
+  const filteredComics = comics.filter(
+    (comic) =>
+      comic &&
+      comic.name &&
+      comic.name.toLowerCase().includes(searchComic.toLowerCase())
   );
 
   // Trying to add Volumes in the filters returns an error int he browser related with the API structure
 
-
-  
   return (
     <section>
       <div className="header">
@@ -78,23 +77,22 @@ function ComicsPage() {
         <Box
           component="form"
           sx={{
-            '& > :not(style)': { m: 1, width: '25ch' },
+            "& > :not(style)": { m: 1, width: "25ch" },
           }}
           noValidate
           autoComplete="off"
         >
           <TextField
-          id="searchComic"
-          label="Search Comic"
-          value= {searchComic}
-          onChange={(e) => setSearchComics(e.target.value)}
+            id="searchComic"
+            label="Search Comic"
+            value={searchComic}
+            onChange={(e) => setSearchComics(e.target.value)}
           />
-          </Box>
-        
+        </Box>
       </div>
 
       {loading ? (
-        <CircularProgress/>
+        <CircularProgress />
       ) : (
         <div>
           {filteredComics.map((comic) => (
@@ -105,7 +103,12 @@ function ComicsPage() {
                   <p>
                     <b>{comic.volume.name} </b>
                     <br />
-                    <small>{comic.name}</small> <br />
+                    <small>
+                      {comic.name && comic.name < 30
+                        ? comic.name
+                        : comic.volume.name}
+                    </small>{" "}
+                    <br />
                     <small>Issue # {comic.issue_number}</small>{" "}
                   </p>
                 </Link>
