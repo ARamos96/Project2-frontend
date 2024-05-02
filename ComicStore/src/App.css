@@ -512,19 +512,15 @@ hr {
 
 .p-megamenu {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
+  width: 180px;
+  background-color: transparent;
 }
 
-.p-menuitem-link {
-  padding: 0px;
-}
-
-.p-menuitem-content {
-  padding-top: 18px;
-  width: 130px;
-  height: 130px;
+.p-menuitem-content > a > img {
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
 }
