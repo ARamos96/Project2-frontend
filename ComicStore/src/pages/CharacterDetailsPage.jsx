@@ -33,13 +33,13 @@ function removeHTMLTagsAndSpecialChars(text) {
     ""
   );
 
-  const withParagraphBreaks = withoutTagsExceptP.replace(
-    /<\/?p[^>]*>/g,
-    "\n"
+  const withParagraphBreaks = withoutTagsExceptP.replace(/<\/?p[^>]*>/g, "\n");
+
+  const withoutSpecialChars = withParagraphBreaks.replace(
+    /[^\w\s,.()#\-\n']/g,
+    ""
   );
 
-  const withoutSpecialChars = withParagraphBreaks.replace(/[^\w\s,.()#\-\n]/g, "");
-  
   return withoutSpecialChars;
 }
 
@@ -75,7 +75,7 @@ function CharacterDetailsPage() {
 
   return (
     <section>
-    <hr />
+      <hr />
       {character && (
         <div className="character-details">
           <div className="character-intro">
@@ -148,46 +148,50 @@ function CharacterDetailsPage() {
             <h3>Origin</h3>
             <p>
               {character.results.description &&
-              character.results.description.includes("Origin")
-                ? removeHTMLTagsAndSpecialChars(
-                    character.results.description.substring(
-                      character.results.description.indexOf("Origin") +
-                        "origin".length,
-                      character.results.description.indexOf("Creation")
-                    )
+              character.results.description.includes("Origin") ? (
+                removeHTMLTagsAndSpecialChars(
+                  character.results.description.substring(
+                    character.results.description.indexOf("Origin") +
+                      "origin".length,
+                    character.results.description.indexOf("Creation")
                   )
-                : <li>Information not available</li>}
+                )
+              ) : (
+                <li>Information not available</li>
+              )}
             </p>
             <hr />
             <h3>Creation</h3>
             <p>
               {character.results.description &&
-              character.results.description.includes("Creation")
-                ? removeHTMLTagsAndSpecialChars(
-                    character.results.description.substring(
-                      character.results.description.indexOf("Creation") +
-                        "Creation".length,
-                      character.results.description.indexOf(
-                        "Character Evolution"
-                      )
-                    )
+              character.results.description.includes("Creation") ? (
+                removeHTMLTagsAndSpecialChars(
+                  character.results.description.substring(
+                    character.results.description.indexOf("Creation") +
+                      "Creation".length,
+                    character.results.description.indexOf("Character Evolution")
                   )
-                : <li>Information not available</li>}
+                )
+              ) : (
+                <li>Information not available</li>
+              )}
             </p>
             <hr />
             <h3>Evolution</h3>
             <p>
               {character.results.description &&
-              character.results.description.includes("Evolution")
-                ? removeHTMLTagsAndSpecialChars(
-                    character.results.description.substring(
-                      character.results.description.indexOf(
-                        "Character Evolution"
-                      ) + "Character Evolution".length,
-                      character.results.description.indexOf("Major Story Arcs")
-                    )
+              character.results.description.includes("Evolution") ? (
+                removeHTMLTagsAndSpecialChars(
+                  character.results.description.substring(
+                    character.results.description.indexOf(
+                      "Character Evolution"
+                    ) + "Character Evolution".length,
+                    character.results.description.indexOf("Major Story Arcs")
                   )
-                : <li>Information not available</li>}
+                )
+              ) : (
+                <li>Information not available</li>
+              )}
             </p>
           </div>
         </div>

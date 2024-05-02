@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+
 // const comicsAPI = `https://corsproxy.io/?https%3A%2F%2Fcomicvine.gamespot.com%2Fapi%2Fissue%2F`;
 // const APIkey = '%3Fapi_key%3D14c652d473fc13e73ef42b10edd6423d911d4969'
 // const forwardSlash = "%2F"

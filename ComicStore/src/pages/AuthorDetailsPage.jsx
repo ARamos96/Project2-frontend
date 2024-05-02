@@ -7,13 +7,34 @@ import { useEffect, useState } from "react";
 // const forwardSlash = "%2F";
 const authorsAPI = `https://corsproxy.io/?https://comicvine.gamespot.com/api/person`;
 
+// function removeHTMLTagsAndSpecialChars(text) {
+//   // Remove HTML tags except <p> tags
+//   const withoutTagsExceptP = text.replace(/<(?!\/?p\b)[^>]*>/g, "");
+//   // Replace <p> tags with newline characters
+//   const withParagraphBreaks = withoutTagsExceptP.replace(/<\/?p>/g, "\n");
+//   // Remove special characters except commas and full stops
+//   const withoutSpecialChars = withParagraphBreaks.replace(/[^\w\s,.]/g, "");
+//   return withoutSpecialChars;
+// }
+
 function removeHTMLTagsAndSpecialChars(text) {
-  // Remove HTML tags except <p> tags
-  const withoutTagsExceptP = text.replace(/<(?!\/?p\b)[^>]*>/g, "");
-  // Replace <p> tags with newline characters
-  const withParagraphBreaks = withoutTagsExceptP.replace(/<\/?p>/g, "\n");
-  // Remove special characters except commas and full stops
-  const withoutSpecialChars = withParagraphBreaks.replace(/[^\w\s,.]/g, "");
+  const withoutFigCaptionTags = text.replace(
+    /<figcaption>[\s\S]*?<\/figcaption>/g,
+    ""
+  );
+
+  const withoutTagsExceptP = withoutFigCaptionTags.replace(
+    /<(?!\/?p\b)[^>]*>/g,
+    ""
+  );
+
+  const withParagraphBreaks = withoutTagsExceptP.replace(/<\/?p[^>]*>/g, "\n");
+
+  const withoutSpecialChars = withParagraphBreaks.replace(
+    /[^\w\s,.()#\-\n']/g,
+    ""
+  );
+
   return withoutSpecialChars;
 }
 
