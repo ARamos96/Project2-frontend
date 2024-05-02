@@ -510,3 +510,21 @@ hr {
   float: right;
 }
 
+.p-megamenu {
+  display: flex;
+  justify-content: center;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+}
+
+.p-menuitem-link {
+  padding: 0px;
+}
+
+.p-menuitem-content {
+  padding-top: 18px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+}
