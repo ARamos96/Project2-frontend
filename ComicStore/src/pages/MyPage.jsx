@@ -7,8 +7,9 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import userAvatar from '../assets/Images/DiogoAvatar.jpg'
-
-
+import LogoutIcon from '@mui/icons-material/Logout';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import HistoryIcon from '@mui/icons-material/History';
 import { MegaMenu } from 'primereact/megamenu';
       
 
@@ -29,15 +30,15 @@ const items = [
           [
               {
                   label: 'Username',
-                  items: [{ label: 'Diogo Barros' }],
+                  items: [{ label: 'Diogorino', icon: <AccountCircleIcon /> }],
               },
               {
                   label: 'Last Connection',
-                  items: [{ label: getCurrentDate() }]
+                  items: [{ label: getCurrentDate(), icon: <HistoryIcon />}]
               },
               {
                   label: 'Log Out',
-                  items: [{ label: 'Log Out' }]
+                  items: [{ label: 'Log Out', icon: <LogoutIcon />}],
               },
               
           ],

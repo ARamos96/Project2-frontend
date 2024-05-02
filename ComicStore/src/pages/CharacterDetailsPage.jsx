@@ -83,7 +83,7 @@ function CharacterDetailsPage() {
               src={character.results.image.small_url}
               alt="no image available"
             />
-            <div className="character-name-and-intro">
+            <div className="author-tile-and-deck">
               <h1>{character.results.name}</h1>
               <p>
                 {character.results.deck
@@ -144,7 +144,7 @@ function CharacterDetailsPage() {
             </table>
           </div>
           <hr />
-          <div className="character-details">
+          <div className="author-career">
             <h3>Origin</h3>
             <p>
               {character.results.description &&

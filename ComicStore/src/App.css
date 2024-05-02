@@ -154,6 +154,7 @@ small {
   align-items: center;
   text-align: justify;
   gap: 20px;
+  line-height: 30px;
 }
 
 .character-details hr {
@@ -171,27 +172,10 @@ small {
 }
 
 .character-intro img {
-  width: 200px;
+  width: 300px;
+  border-radius: 20px;
 }
 
-.character-name-and-intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0px 15px;
-  text-align: justify;
-  width: 900px;
-  gap: 20px;
-}
-
-.character-name-and-intro p {
-  margin: 0px;
-  line-height: 30px;
-}
-
-.character-name-and-intro h1 {
-  margin: 0;
-}
 
 .genInfo-table {
   padding: 20px;

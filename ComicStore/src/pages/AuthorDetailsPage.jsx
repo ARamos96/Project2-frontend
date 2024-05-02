@@ -170,7 +170,7 @@ function AuthorDetailsPage() {
           </div>
           <hr />
           <div className="author-career">
-            <h2>Career</h2>
+            <h3>Career</h3>
             <p>
               {author.results.description ? (
                 removeHTMLTagsAndSpecialChars(
