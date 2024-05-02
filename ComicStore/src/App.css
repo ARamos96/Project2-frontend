@@ -1,7 +1,11 @@
 :root {
   background-color: rgb(228, 221, 221);
   font-family: "Arimo", sans-serif;
-  margin: 0px 20px 20px 20px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
 }
 
 
