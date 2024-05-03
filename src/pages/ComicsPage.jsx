@@ -65,7 +65,8 @@ function ComicsPage() {
     (comic) =>
       comic &&
       comic.name &&
-      comic.name.toLowerCase().includes(searchComic.toLowerCase())
+      comic.volume.name &&
+      comic.volume.name.toLowerCase().includes(searchComic.toLowerCase())
   );
 
   // Trying to add Volumes in the filters returns an error int he browser related with the API structure
@@ -94,10 +95,10 @@ function ComicsPage() {
       {loading ? (
         <CircularProgress
           sx={{
-            position: 'relative',
-            top: '50%',
-            left: '50%',
-            marginBottom: '100px',  
+            position: "relative",
+            top: "50%",
+            left: "50%",
+            marginBottom: "100px",
           }}
         />
       ) : (
