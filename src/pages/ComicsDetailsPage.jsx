@@ -18,7 +18,7 @@ function removeHTMLTagsAndSpecialChars(text) {
     ""
   );
   // Replace <p> tags with newline characters
-  const withParagraphBreaks = withoutTagsExceptP.replace(/<\/?p[^>]*>/g, "\n");
+  const withParagraphBreaks = withoutTagsExceptP.replace(/<\/?p[^>]*>/g, '\n');
   // Remove special characters except commas and full stops
   const withoutSpecialChars = withParagraphBreaks.replace(
     /[^\w\s,.()#\-\n']/g,
@@ -72,7 +72,9 @@ function ComicDetailsPage() {
               <p>
                 {comic.results.description ? (
                   removeHTMLTagsAndSpecialChars(comic.results.description)
-                ) : (
+                )
+                .split("\n")
+                .map(str => <p>{str}</p>) : (
                   <li>No summary available</li>
                 )}
               </p>

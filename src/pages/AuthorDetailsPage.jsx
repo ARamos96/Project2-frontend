@@ -180,6 +180,8 @@ function AuthorDetailsPage() {
                     author.results.description.indexOf("Personal")
                   )
                 )
+                .split("\n")
+                .map(str => <p>{str}</p>)
               ) : (
                 <li>Information not available</li>
               )}

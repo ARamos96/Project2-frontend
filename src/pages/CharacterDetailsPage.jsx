@@ -156,6 +156,8 @@ function CharacterDetailsPage() {
                     character.results.description.indexOf("Creation")
                   )
                 )
+                .split("\n")
+                .map(str => <p>{str}</p>)
               ) : (
                 <li>Information not available</li>
               )}
@@ -172,6 +174,8 @@ function CharacterDetailsPage() {
                     character.results.description.indexOf("Character Evolution")
                   )
                 )
+                .split("\n")
+                .map(str => <p>{str}</p>)
               ) : (
                 <li>Information not available</li>
               )}
@@ -189,6 +193,8 @@ function CharacterDetailsPage() {
                     character.results.description.indexOf("Major Story Arcs")
                   )
                 )
+                .split("\n")
+                .map(str => <p>{str}</p>)
               ) : (
                 <li>Information not available</li>
               )}
