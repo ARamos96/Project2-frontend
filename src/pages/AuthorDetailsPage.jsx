@@ -31,13 +31,12 @@ function removeHTMLTagsAndSpecialChars(text) {
   const withParagraphBreaks = withoutTagsExceptP.replace(/<\/?p[^>]*>/g, "\n");
 
   const withoutSpecialChars = withParagraphBreaks.replace(
-    /[^\w\s,.()#\-\n']/g,
+    /[^\w\s,.()#!?'\-"&;:/<>{}[\]@()*_+=|%$\n]/g,
     ""
   );
 
   return withoutSpecialChars;
 }
-
 function AuthorDetailsPage() {
   const [author, setAuthor] = useState(null);
 
