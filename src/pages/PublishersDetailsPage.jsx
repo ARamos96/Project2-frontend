@@ -55,7 +55,9 @@ function PublishersDetailsPage() {
           <div className="publisher-intro">
             <img src={publisher.results.image.small_url} />
             <h2>{publisher.results.name}</h2>
-            <p>{removeHTMLTagsAndSpecialChars(publisher.results.deck)}</p>
+            <p>{publisher.results.deck 
+            ? removeHTMLTagsAndSpecialChars(publisher.results.deck)
+            : 'No description available'}</p>
           </div>
           {/* <table>Publisher Info Table</table> */}
           {/* <div className="publisher-history"> */}
